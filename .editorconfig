@@ -1,0 +1,21 @@
+# Editor settings for Going Gophers
+
+# Allow user specific rules to be inherited, override for this scope
+root = false
+
+# Define default white space rules
+[*]
+end_of_line              = lf
+charset                  = utf-8
+trim_trailing_whitespace = true
+insert_final_newline     = true
+
+# Define Go indentation
+[*.go]
+indent_style = tab
+indent_size  = 4
+
+# Define markup indentation
+[*.{md,yml,json}]
+indent_style = space
+indnet_size  = 2
