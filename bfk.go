@@ -1,5 +1,10 @@
 package bfk
 
+var (
+	cell_max int64 = 255
+	cell_min int64 = 0
+)
+
 type Incrementer interface {
 	Increment()
 }
@@ -8,28 +13,30 @@ type Decrementer interface {
 	Decrement()
 }
 
-type Cell struct {
-	max   int
-	min   int
-	Value int
-}
+type Cell int64
 
 func (cell *Cell) Increment() {
 	// Increment the value
-	cell.Value++
+	value := int64(*cell) + 1
 
 	// Check maximum not exceeded
-	if cell.Value > cell.max {
-		cell.Value = cell.min
+	if value > cell_max {
+		value = cell_min
 	}
+
+	// Asign new value
+	*cell = Cell(value)
 }
 
 func (cell *Cell) Decrement() {
 	// Decrement the value
-	cell.Value--
+	value := int64(*cell) - 1
 
 	// Check minimum not exceeded
-	if cell.Value < cell.min {
-		cell.Value = cell.max
+	if value < cell_min {
+		value = cell_max
 	}
+
+	// Asign new value
+	*cell = Cell(value)
 }
