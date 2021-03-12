@@ -1,7 +1,7 @@
 package bfk
 
 var (
-	pointer_max int64 = 30000
+	pointer_max int64 = 29000
 	pointer_min int64 = 0
 )
 
