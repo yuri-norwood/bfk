@@ -13,6 +13,11 @@ type Decrementer interface {
 	Decrement()
 }
 
+type IncrementDecrementer interface {
+	Decrementer
+	Incrementer
+}
+
 type Cell int64
 
 func (cell *Cell) Increment() {
