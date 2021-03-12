@@ -5,19 +5,6 @@ var (
 	cell_min int64 = 0
 )
 
-type Incrementer interface {
-	Increment()
-}
-
-type Decrementer interface {
-	Decrement()
-}
-
-type IncrementDecrementer interface {
-	Decrementer
-	Incrementer
-}
-
 type Cell int64
 
 func (cell *Cell) Increment() {
