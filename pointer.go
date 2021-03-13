@@ -7,7 +7,7 @@ var (
 
 type Pointer int64
 
-func (pointer *Pointer) Increment() {
+func (pointer *Pointer) Right() {
 	// Increment the value
 	value := int64(*pointer) + 1
 
@@ -20,7 +20,7 @@ func (pointer *Pointer) Increment() {
 	*pointer = Pointer(value)
 }
 
-func (pointer *Pointer) Decrement() {
+func (pointer *Pointer) Left() {
 	// Decrement the value
 	value := int64(*pointer) - 1
 
