@@ -5,7 +5,7 @@ type Tape struct {
 	cells   []Cell
 }
 
-func NewTape(size int64) *Tape {
+func NewTape() *Tape {
 	return &Tape{ cells : make([]Cell, pointer_max) }
 }
 
