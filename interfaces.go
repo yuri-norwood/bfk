@@ -12,3 +12,16 @@ type IncrementDecrementer interface {
 	Decrementer
 	Incrementer
 }
+
+type Lefter interface {
+	Left()
+}
+
+type Righter interface {
+	Right()
+}
+
+type LeftRighter interface {
+	Lefter
+	Righter
+}
