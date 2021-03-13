@@ -1,12 +1,16 @@
 package bfk
 
+var (
+	tape_size = 30000
+)
+
 type Tape struct {
 	pointer Pointer
 	cells   []Cell
 }
 
 func NewTape() *Tape {
-	return &Tape{ cells : make([]Cell, pointer_max) }
+	return &Tape{ cells : make([]Cell, tape_size) }
 }
 
 func (tape *Tape) Left() {
