@@ -5,20 +5,28 @@ var (
 )
 
 type Tape struct {
-	pointer Pointer
+	pointer int64
 	cells   []Cell
 }
 
-func NewTape() *Tape {
-	return &Tape{ cells : make([]Cell, tape_size) }
+func (tape *Tape) Right() {
+	// Increment the value
+	tape.pointer++
+
+	// Check maximum not exceeded
+	if tape.pointer >= tape_size {
+		tape.pointer = 0
+	}
 }
 
 func (tape *Tape) Left() {
-	tape.pointer.Left()
-}
+	// Decrement the value
+	tape.pointer--
 
-func (tape *Tape) Right() {
-	tape.pointer.Right()
+	// Check minimum not exceeded
+	if tape.pointer < 0 {
+		tape.pointer = tape_size - 1
+	}
 }
 
 func (tape *Tape)  Increment() {
