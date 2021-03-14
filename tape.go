@@ -29,10 +29,10 @@ func (t *tape) Left() {
 	}
 }
 
-func (t *Tape)  Increment() {
+func (t *Tape) Increment() {
 	t.cells[t.pointer].Increment()
 }
 
-func (t *Tape)  Decrement() {
+func (t *Tape) Decrement() {
 	t.cells[t.pointer].Decrement()
 }
