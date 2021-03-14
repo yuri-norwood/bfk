@@ -5,11 +5,11 @@ var (
 	cell_min int64 = 0
 )
 
-type Cell int64
+type cell int64
 
-func (cell *Cell) Increment() {
+func (c *cell) Increment() {
 	// Increment the value
-	value := int64(*cell) + 1
+	value := int64(*c) + 1
 
 	// Check maximum not exceeded
 	if value > cell_max {
@@ -17,12 +17,12 @@ func (cell *Cell) Increment() {
 	}
 
 	// Asign new value
-	*cell = Cell(value)
+	*c = cell(value)
 }
 
-func (cell *Cell) Decrement() {
+func (c *cell) Decrement() {
 	// Decrement the value
-	value := int64(*cell) - 1
+	value := int64(*c) - 1
 
 	// Check minimum not exceeded
 	if value < cell_min {
@@ -30,5 +30,5 @@ func (cell *Cell) Decrement() {
 	}
 
 	// Asign new value
-	*cell = Cell(value)
+	*c = cell(value)
 }
