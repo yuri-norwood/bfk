@@ -4,35 +4,35 @@ var (
 	tape_size = 30000
 )
 
-type Tape struct {
+type tape struct {
 	pointer int64
 	cells   []Cell
 }
 
-func (tape *Tape) Right() {
+func (t *tape) Right() {
 	// Increment the value
-	tape.pointer++
+	t.pointer++
 
 	// Check maximum not exceeded
-	if tape.pointer >= tape_size {
-		tape.pointer = 0
+	if t.pointer >= tape_size {
+		t.pointer = 0
 	}
 }
 
-func (tape *Tape) Left() {
+func (t *tape) Left() {
 	// Decrement the value
-	tape.pointer--
+	t.pointer--
 
 	// Check minimum not exceeded
-	if tape.pointer < 0 {
-		tape.pointer = tape_size - 1
+	if t.pointer < 0 {
+		t.pointer = tape_size - 1
 	}
 }
 
-func (tape *Tape)  Increment() {
-	tape.cells[tape.pointer].Increment()
+func (t *Tape)  Increment() {
+	t.cells[t.pointer].Increment()
 }
 
-func (tape *Tape)  Decrement() {
-	tape.cells[tape.pointer].Decrement()
+func (t *Tape)  Decrement() {
+	t.cells[t.pointer].Decrement()
 }
