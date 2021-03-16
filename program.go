@@ -26,5 +26,5 @@ func (prgm *program) Write(p []byte) (n int, err error) {
 }
 
 func Parse(text string) Program {
-	return program { code : text }
+	return &program{code: text}
 }
