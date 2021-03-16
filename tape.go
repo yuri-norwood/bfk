@@ -37,6 +37,6 @@ func (t *Tape) Decrement() {
 	t.Current().Decrement()
 }
 
-	func (t *Tape) Current() *cell {
+func (t *Tape) Current() *cell {
 	return t.cells[t.pointer]
 }
