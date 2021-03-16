@@ -23,3 +23,7 @@ func (prgm *program) Read(p []byte) (n int, err error) {
 func (prgm *program) Write(p []byte) (n int, err error) {
 	return 0, errors.New("Unimplemented")
 }
+
+func Parse(text string) Program {
+	return program { code : text }
+}
