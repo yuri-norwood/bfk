@@ -1,6 +1,7 @@
 package bfk
 
 import (
+	"errors"
 	"io"
 )
 
