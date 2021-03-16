@@ -25,3 +25,16 @@ type LeftRighter interface {
 	Lefter
 	Righter
 }
+
+type Outputter interface {
+	Output() int64
+}
+
+type Inputter interface {
+	Input(int64)
+}
+
+type OutputInputter interface {
+	Outputter
+	Inputter
+}
