@@ -9,6 +9,10 @@ type tape struct {
 	cells   []cell
 }
 
+func (t *tape) Current() *cell {
+	return t.cells[t.pointer]
+}
+
 func (t *tape) Right() {
 	// Increment the value
 	t.pointer++
@@ -29,14 +33,18 @@ func (t *tape) Left() {
 	}
 }
 
-func (t *Tape) Increment() {
+func (t *tape) Increment() {
 	t.Current().Increment()
 }
 
-func (t *Tape) Decrement() {
+func (t *tape) Decrement() {
 	t.Current().Decrement()
 }
 
-func (t *Tape) Current() *cell {
-	return t.cells[t.pointer]
+func (t *tape) Output() int64 {
+	return int64(t.Current())
+}
+
+func (t *tape) Input(value int64) {
+	t.Current() = cell(value)
 }
