@@ -30,9 +30,13 @@ func (t *tape) Left() {
 }
 
 func (t *Tape) Increment() {
-	t.cells[t.pointer].Increment()
+	t.Current().Increment()
 }
 
 func (t *Tape) Decrement() {
-	t.cells[t.pointer].Decrement()
+	t.Current().Decrement()
+}
+
+	func (t *Tape) Current() *cell {
+	return t.cells[t.pointer]
 }
