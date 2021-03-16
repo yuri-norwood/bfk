@@ -10,6 +10,10 @@ type tape struct {
 }
 
 func (t *tape) Current() *cell {
+	if t.pointer < len(t.cells) {
+		t.cells = append(t.cells, cell(0))
+	}
+
 	return &t.cells[t.pointer]
 }
 
