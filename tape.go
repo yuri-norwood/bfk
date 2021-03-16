@@ -46,5 +46,5 @@ func (t *tape) Output() int64 {
 }
 
 func (t *tape) Input(value int64) {
-	*t.Current() = &cell(value)
+	*t.Current() = cell(value)
 }
