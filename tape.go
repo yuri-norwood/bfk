@@ -10,7 +10,7 @@ type tape struct {
 }
 
 func (t *tape) Current() *cell {
-	return t.cells[t.pointer]
+	return &t.cells[t.pointer]
 }
 
 func (t *tape) Right() {
