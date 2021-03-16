@@ -1,7 +1,7 @@
 package bfk
 
 var (
-	tape_size = 30000
+	tape_size int64 = 30000
 )
 
 type tape struct {
