@@ -6,7 +6,7 @@ var (
 
 type tape struct {
 	pointer int64
-	cells   []Cell
+	cells   []cell
 }
 
 func (t *tape) Right() {
