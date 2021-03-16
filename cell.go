@@ -16,7 +16,7 @@ func (c *cell) Increment() {
 		value = cell_min
 	}
 
-	// Asign new value
+	// Assign new value
 	*c = cell(value)
 }
 
@@ -29,6 +29,6 @@ func (c *cell) Decrement() {
 		value = cell_max
 	}
 
-	// Asign new value
+	// Assign new value
 	*c = cell(value)
 }
