@@ -1,0 +1,19 @@
+name: Weekly
+
+on:
+  schedule:
+    - cron: "0 0 * * 1"
+
+jobs:
+
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Run go-mod-vendor-pr
+        uses: DennisDenuto/go-mod-vendor-pr@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          git_user_name: Yuri Norwood
+          git_user_email: 76186754+yuri-norwood@users.noreply.github.com
