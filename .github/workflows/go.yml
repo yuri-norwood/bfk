@@ -14,10 +14,13 @@ jobs:
     steps:
     - uses: actions/checkout@v2
 
+    - name: Set env
+      run: echo "GITHUB_REPOSITORY=${GITHUB_REPOSITORY}" >> $GITHUB_ENV
+
     - name: Go Get Check
       uses: joshcarp/gogetcheck@v0.6.0
       with:
-        package: github.com/yuri-norwood/going-gophers
+        package: github.com/yuri-norwood/${{ env.GITHUB_REPOSITORY }}
 
   vet:
     runs-on: ubuntu-latest
