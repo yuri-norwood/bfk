@@ -9,28 +9,28 @@ on:
 
 jobs:
 
-  #get:
-  #  runs-on: ubuntu-latest
-  #  steps:
-  #  - uses: actions/checkout@v2
-
-  #  - name: Go Get Check
-  #    uses: joshcarp/gogetcheck@v0.6.0
-  #    with:
-  #      package: github.com/yuri-norwood/going-gophers
-
-  vet:
+  get:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
 
-    - name: Set up Go
-      uses: actions/setup-go@v2
+    - name: Go Get Check
+      uses: joshcarp/gogetcheck@v0.6.0
       with:
-        go-version: 1.15
+        package: github.com/yuri-norwood/going-gophers
 
-    - name: Vet
-      run: go vet
+  #vet:
+  #  runs-on: ubuntu-latest
+  #  steps:
+  #  - uses: actions/checkout@v2
+
+  #  - name: Set up Go
+  #    uses: actions/setup-go@v2
+  #    with:
+  #      go-version: 1.15
+
+  #  - name: Vet
+  #    run: go vet
 
   fmt:
     runs-on: ubuntu-latest
