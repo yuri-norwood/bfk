@@ -1,7 +1,7 @@
 package bfk
 
 var (
-	tape_size int64 = 30000
+	tapeSize int64 = 30000
 )
 
 type tape struct {
@@ -22,7 +22,7 @@ func (t *tape) Right() {
 	t.pointer++
 
 	// Check maximum not exceeded
-	if t.pointer >= tape_size {
+	if t.pointer >= tapeSize {
 		t.pointer = 0
 	}
 }
@@ -33,7 +33,7 @@ func (t *tape) Left() {
 
 	// Check minimum not exceeded
 	if t.pointer < 0 {
-		t.pointer = tape_size - 1
+		t.pointer = tapeSize - 1
 	}
 }
 
