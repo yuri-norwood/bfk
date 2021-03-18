@@ -10,7 +10,7 @@ type tape struct {
 }
 
 func (t *tape) Current() *cell {
-	if t.pointer < len(t.cells) {
+	if t.pointer < int64(len(t.cells)) {
 		t.cells = append(t.cells, cell(0))
 	}
 
