@@ -1,15 +1,9 @@
 package bfk
 
-import (
-	"errors"
-	"io"
-)
+import "io"
 
 type Program interface {
-	IncrementDecrementer
-	LeftRighter
-	OutputInputter
-	io.ReadWriter
+	Execute(io.ReadWriter) error
 }
 
 type program struct {
@@ -17,12 +11,8 @@ type program struct {
 	code string
 }
 
-func (prgm *program) Read(p []byte) (n int, err error) {
-	return 0, errors.New("Unimplemented")
-}
-
-func (prgm *program) Write(p []byte) (n int, err error) {
-	return 0, errors.New("Unimplemented")
+func (p *program) Execute(readWriter io.ReadWriter) error {
+	return nil
 }
 
 func Parse(text string) Program {
