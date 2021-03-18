@@ -3,9 +3,9 @@
 name: Auto Brancher
 
 on:
-  workflow_dispatch:
   issues:
-    types: [opened]
+    types:
+      - opened
 
 jobs:
 
