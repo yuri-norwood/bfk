@@ -8,7 +8,7 @@
 // Parsing:
 //
 // 	program := bfk.Parse("+[>>>->-[>->----<<<]>>]>.---.>+..+++.>>.<.>>---.<<<.+++.------.<-.>>+.")
-// 
+//
 // Execution:
 //
 // 	var stream io.ReadWriter
