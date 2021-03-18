@@ -26,7 +26,7 @@ type Lefter interface {
 	Left()
 }
 
-// Righer represents the ability to move right on a tape.
+// Righter represents the ability to move right on a tape.
 type Righter interface {
 	Right()
 }
