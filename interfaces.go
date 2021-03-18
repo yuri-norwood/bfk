@@ -9,7 +9,7 @@ type Incrementer interface {
 	Increment()
 }
 
-// Incrementer represents the ability to decrease a cell's value.
+// Decrementer represents the ability to decrease a cell's value.
 type Decrementer interface {
 	Decrement()
 }
