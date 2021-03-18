@@ -20,7 +20,7 @@ func (t *tape) Right() {
 	if t.pointer >= tapeSize {
 		t.pointer = 0
 	}
-	
+
 	// Expand memory
 	if t.pointer < int64(len(t.memory)) {
 		t.memory = append(t.memory, cell(0))
