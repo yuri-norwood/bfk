@@ -50,9 +50,9 @@ func (t *tape) Decrement() {
 }
 
 func (t *tape) Output() int64 {
-	return int64(*t.Current())
+	return t.Current().Output()
 }
 
 func (t *tape) Input(value int64) {
-	*t.Current() = cell(value)
+	t.Current().Input(value)
 }
