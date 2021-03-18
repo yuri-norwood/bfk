@@ -1,82 +1,86 @@
+---
+
 name: Go
 
 on:
   workflow_dispatch:
   push:
-    branches: [ main ]
+    branches:
+      - main
   pull_request:
-    branches: [ main ]
+    branches:
+      - main
 
 jobs:
 
   get:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
+      - uses: actions/checkout@v2
 
-    - name: Set env
-      run: echo "GITHUB_REPOSITORY=${GITHUB_REPOSITORY}" >> $GITHUB_ENV
+      - name: Set env
+        run: echo "GITHUB_REPOSITORY=${GITHUB_REPOSITORY}" >> $GITHUB_ENV
 
-    - name: Go Get Check
-      uses: joshcarp/gogetcheck@v0.6.0
-      with:
-        package: github.com/yuri-norwood/${{ env.GITHUB_REPOSITORY }}
+      - name: Go Get Check
+        uses: joshcarp/gogetcheck@v0.6.0
+        with:
+          package: github.com/${{ env.GITHUB_REPOSITORY }}
 
   vet:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
+      - uses: actions/checkout@v2
 
-    - name: Set up Go
-      uses: actions/setup-go@v2
-      with:
-        go-version: 1.15
+      - name: Set up Go
+        uses: actions/setup-go@v2
+        with:
+          go-version: 1.15
 
-    - name: Vet
-      run: go vet
+      - name: Vet
+        run: go vet
 
   fmt:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@master
+      - uses: actions/checkout@master
 
-    - name: Golang Formatter
-      uses: sladyn98/auto-go-format@master
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Golang Formatter
+        uses: sladyn98/auto-go-format@master
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
   lint:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
+      - uses: actions/checkout@v2
 
-    - name: Lint Go files
-      uses: Jerome1337/golint-action@v1.0.2
-      with:
-        golint-path: './...'
+      - name: Lint Go files
+        uses: Jerome1337/golint-action@v1.0.2
+        with:
+          golint-path: './...'
 
   build:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
+      - uses: actions/checkout@v2
 
-    - name: Set up Go
-      uses: actions/setup-go@v2
-      with:
-        go-version: 1.15
+      - name: Set up Go
+        uses: actions/setup-go@v2
+        with:
+          go-version: 1.15
 
-    - name: Build
-      run: go build -v ./...
+      - name: Build
+        run: go build -v ./...
 
   test:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
+      - uses: actions/checkout@v2
 
-    - name: Set up Go
-      uses: actions/setup-go@v2
-      with:
-        go-version: 1.15
+      - name: Set up Go
+        uses: actions/setup-go@v2
+        with:
+          go-version: 1.15
 
-    - name: Test
-      run: go test -v ./...
+      - name: Test
+        run: go test -v ./...

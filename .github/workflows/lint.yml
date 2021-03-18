@@ -1,0 +1,55 @@
+---
+
+name: Lint
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+
+  markdown:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+
+      # Lint the README
+      - name: Lint README
+        uses: nosborn/github-action-markdown-cli@v1.1.1
+        with:
+          files: README.md
+
+  editorconfig:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+
+      # Check all files against the .editorconfig
+      - name: Check editorconfig
+        uses: editorconfig-checker/action-editorconfig-checker@v1.0.0
+
+  yaml:
+    runs-on: ubuntu-latest
+    steps:
+
+      # Lint all .yml files
+      - uses: actions/checkout@v1
+      - name: yaml lint
+        uses: ibiqlik/action-yamllint@v3
+        with:
+          strict: true
+          format: parsable
+          config_data: |
+            extends: default
+            rules:
+              line-length: disable
+              truthy:
+                check-keys: false
+                allowed-values:
+                  - "true"
+                  - "false"
