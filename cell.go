@@ -36,3 +36,11 @@ func (c *cell) Decrement() {
 	// Assign new value
 	*c = cell(value)
 }
+
+func (c *cell) Output() int64 {
+	return int64(*c)
+}
+
+func (c *cell) Input(value int64) {
+	*c = cell(value)
+}
