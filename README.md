@@ -33,3 +33,7 @@ func main() {
 }
 
 ```
+
+## Usage
+
+`bfk` allows any implementation of the `io.ReadWritter` interface to be used by *BF* code, this is not limited to simple Hello World type programs that simply write a string to standard output, `bfk` allows the *BF* code to do *anything*, such as writing to images, preforming byte-wise encoding and decoding, and even modifying sound streams. In addition to this, parsing the *BF* source code, and execution of the source code, are separated, meaning that the same `bfk.Program` can be reused on multiple `io.ReadWritter` sources, or even allowing for parralelization by running many copies in their own go routines. Note however, that `bfk` leaves concurency up to the user, as *BF* itself is inhearently single-threaded.
