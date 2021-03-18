@@ -6,12 +6,6 @@ package bfk
 
 import "io"
 
-// Program provides external access to compiled Brainfuck
-// program to execute.
-type Program interface {
-	Execute(io.ReadWriter) error
-}
-
 type program struct {
 	tape
 	code string
