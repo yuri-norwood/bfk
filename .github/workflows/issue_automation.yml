@@ -1,6 +1,6 @@
 ---
 
-name: Auto Brancher
+name: Auto
 
 on:
   issues:
