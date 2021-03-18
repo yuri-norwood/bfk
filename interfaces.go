@@ -54,3 +54,9 @@ type OutputInputter interface {
 	Outputter
 	Inputter
 }
+
+// Program provides external access to compiled Brainfuck
+// program to execute.
+type Program interface {
+	Execute(io.ReadWriter) error
+}
