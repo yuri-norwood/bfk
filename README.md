@@ -28,16 +28,16 @@ never be capitalised or punctuated, neither ~***BFK***~, ~***B.F.K.***~, nor
 package main
 
 import (
-        "os"
+    "os"
 
-        "github.com/yuri-norwood/bfk"
+    "github.com/yuri-norwood/bfk"
 )
 
 const HelloWorld = "+[>>>->-[>->----<<<]>>]>.---.>+..+++.>>.<.>>---.<<<.+++.------.<-.>>+."
 
 func main() {
-        program := bfk.Parse(HelloWorld)
-        program.Execute(os.Stdout) // Prints "hello, world!"
+    program := bfk.Parse(HelloWorld)
+    program.Execute(os.Stdout) // Prints "hello, world!"
 }
 
 ```
