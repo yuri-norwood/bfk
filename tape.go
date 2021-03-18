@@ -4,21 +4,12 @@
 
 package bfk
 
-var (
-	tapeSize int64 = 30000
-)
+var tapeSize int64 = 30000
 
 type tape struct {
+	cell
 	pointer int64
-	cells   []cell
-}
-
-func (t *tape) Current() *cell {
-	if t.pointer < int64(len(t.cells)) {
-		t.cells = append(t.cells, cell(0))
-	}
-
-	return &t.cells[t.pointer]
+	memory  []cell
 }
 
 func (t *tape) Right() {
@@ -29,6 +20,14 @@ func (t *tape) Right() {
 	if t.pointer >= tapeSize {
 		t.pointer = 0
 	}
+
+	// Expand memory
+	if t.pointer < int64(len(t.memory)) {
+		t.memory = append(t.memory, cell(0))
+	}
+
+	// Update current cell
+	t.cell = t.memory[t.pointer]
 }
 
 func (t *tape) Left() {
@@ -39,20 +38,12 @@ func (t *tape) Left() {
 	if t.pointer < 0 {
 		t.pointer = tapeSize - 1
 	}
-}
 
-func (t *tape) Increment() {
-	t.Current().Increment()
-}
+	// Expand memory
+	if t.pointer < int64(len(t.memory)) {
+		t.memory = append(t.memory, cell(0))
+	}
 
-func (t *tape) Decrement() {
-	t.Current().Decrement()
-}
-
-func (t *tape) Output() int64 {
-	return t.Current().Output()
-}
-
-func (t *tape) Input(value int64) {
-	t.Current().Input(value)
+	// Update current cell
+	t.cell = t.memory[t.pointer]
 }
