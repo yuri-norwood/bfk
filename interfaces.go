@@ -4,6 +4,8 @@
 
 package bfk
 
+import "io"
+
 // Incrementer represents the ability to increase a cell's value.
 type Incrementer interface {
 	Increment()
