@@ -1,8 +1,8 @@
 package bfk
 
 var (
-	cell_max int64 = 255
-	cell_min int64 = 0
+	cellMax int64 = 255
+	cellMin int64 = 0
 )
 
 type cell int64
@@ -12,8 +12,8 @@ func (c *cell) Increment() {
 	value := int64(*c) + 1
 
 	// Check maximum not exceeded
-	if value > cell_max {
-		value = cell_min
+	if value > cellMax {
+		value = cellMin
 	}
 
 	// Assign new value
@@ -25,8 +25,8 @@ func (c *cell) Decrement() {
 	value := int64(*c) - 1
 
 	// Check minimum not exceeded
-	if value < cell_min {
-		value = cell_max
+	if value < cellMin {
+		value = cellMax
 	}
 
 	// Assign new value
