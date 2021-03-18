@@ -4,6 +4,8 @@
 
 package bfk
 
+import "io"
+
 // Incrementer represents the ability to increase a cell's value.
 type Incrementer interface {
 	Increment()
@@ -53,4 +55,10 @@ type Inputter interface {
 type OutputInputter interface {
 	Outputter
 	Inputter
+}
+
+// Program provides external access to compiled Brainfuck
+// program to execute.
+type Program interface {
+	Execute(io.ReadWriter) error
 }
