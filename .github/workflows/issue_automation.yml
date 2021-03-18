@@ -1,14 +1,18 @@
 ---
 
+# This file defines automation actions
 name: Auto
 
+# Automate on all issue events
 on:
   issues:
     types:
       - opened
 
+# Define a job for each automatic task
 jobs:
 
+  # This job creates a branch for each issue and comments checkout command
   branch:
     runs-on: ubuntu-latest
     steps:
