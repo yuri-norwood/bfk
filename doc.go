@@ -5,5 +5,14 @@
 /**
  * Package bfk provides methods and types to parse, interpret,
  * and compile, Brainfuck code.
+ *
+ * Parsing:
+ *
+ *	program := bfk.Parse("+[>>>->-[>->----<<<]>>]>.---.>+..+++.>>.<.>>---.<<<.+++.------.<-.>>+.")
+ *
+ * Execution:
+ *
+ *	var stream io.ReadWriter
+ *	program.Execute(stream)
  */
 package bfk
