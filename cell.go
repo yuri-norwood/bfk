@@ -5,7 +5,7 @@
 package bfk
 
 var (
-	// cellMax defines the maximum value a cell can contain. 
+	// cellMax defines the maximum value a cell can contain.
 	cellMax int64 = 255
 
 	// cellMin defines the miniumum value a cell can contain.
