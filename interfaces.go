@@ -57,11 +57,18 @@ type outputInputter interface {
 	inputter
 }
 
-// Program provides external access to compiled Brainfuck
-// program to execute.
-type Program interface {
+// memory represents the behaviour of a tape of cells, allowing
+// input and output, moving accross the tape, and modifying the
+// values of the cells.
+type memory interface {
 	incrementDecrementer
 	leftRighter
 	outputInputter
+}
+
+// Program provides external access to compiled Brainfuck
+// program to execute.
+type Program interface {
+	memory
 	Execute(io.ReadWriter) error
 }
