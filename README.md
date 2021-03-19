@@ -8,7 +8,8 @@ Brainfuck interpreter Go package
 ## Introduction
 
 This package parses and executes Brainfuck code against an arbitrary
-`io.ReadWritter` implementation, e.g. `os.Stdout`.
+[`io.ReadWritter`](https://golang.org/pkg/io/#ReadWriter) implementation,
+e.g. [`os.Stdout`](https://golang.org/pkg/os/#Stdout).
 
 ### Naming
 
