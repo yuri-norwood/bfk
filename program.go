@@ -6,11 +6,15 @@ package bfk
 
 import "io"
 
+// program is a private implementor of the Program interface,
+// to be returned by the Parse constructor.
 type program struct {
 	tape
 	code string
 }
 
+// Execute runs a compiled program instance using the given
+// ReadWriter.
 func (p *program) Execute(readWriter io.ReadWriter) error {
 	return nil
 }
