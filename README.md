@@ -3,7 +3,7 @@
 [![Go Report Card](https://goreportcard.com/badge/github.com/yuri-norwood/bfk)](https://goreportcard.com/report/github.com/yuri-norwood/bfk)
 [![Go Reference](https://pkg.go.dev/badge/github.com/yuri-norwood/bfk.svg)](https://pkg.go.dev/github.com/yuri-norwood/bfk)
 
-[Brainfuck](https://en.wikipedia.org/wiki/Brainfuck) interpreter Go package
+Brainfuck interpreter Go package
 
 ## Introduction
 
@@ -13,7 +13,7 @@ This package parses and executes Brainfuck code against an arbitrary
 ### Naming
 
 The name [`bfk`](https://github.com/yuri-norwood/bfk) is a abriviation of
-*Brainfuck* (which hearafter is refered to as *BF*) in the same manner that the
+*[Brainfuck](https://en.wikipedia.org/wiki/Brainfuck)* (which hearafter is refered to as *BF*) in the same manner that the
 [`fmt`](https://golang.org/pkg/fmt/) package is a abriviation of *Format*. This
 seamed appropriate given the name of the language, as well as the sometimes
 hard-to-read names of Go package and module names.
