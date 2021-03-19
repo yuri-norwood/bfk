@@ -58,7 +58,7 @@ type outputInputter interface {
 }
 
 // memory represents the behaviour of a tape of cells, allowing
-// input and output, moving accross the tape, and modifying the
+// input and output, moving across the tape, and modifying the
 // values of the cells.
 type memory interface {
 	incrementDecrementer
