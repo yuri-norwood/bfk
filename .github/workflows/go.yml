@@ -71,3 +71,8 @@ jobs:
 
       - name: Test
         run: go test -v ./...
+
+  report:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: creekorful/goreportcard-action@v1.0
