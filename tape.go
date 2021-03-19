@@ -4,15 +4,19 @@
 
 package bfk
 
+// tapeSize defines the maximum size of a memory tape.
 var tapeSize int64 = 30000
 
+// tape is a private implementor of the memory interface,
+// providing access to a collection of cells.
 type tape struct {
 	cell
 	pointer int64
 	memory  []cell
 }
 
-func (t *tape) Right() {
+// right moves the pointer right on a tape.
+func (t *tape) right() {
 	// Increment the value
 	t.pointer++
 
@@ -30,7 +34,8 @@ func (t *tape) Right() {
 	t.cell = t.memory[t.pointer]
 }
 
-func (t *tape) Left() {
+// left moves the pointer left on a tape.
+func (t *tape) left() {
 	// Decrement the value
 	t.pointer--
 

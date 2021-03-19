@@ -6,59 +6,69 @@ package bfk
 
 import "io"
 
-// Incrementer represents the ability to increase a cell's value.
-type Incrementer interface {
-	Increment()
+// incrementer represents the ability to increase a cell's value.
+type incrementer interface {
+	increment()
 }
 
-// Decrementer represents the ability to decrease a cell's value.
-type Decrementer interface {
-	Decrement()
+// decrementer represents the ability to decrease a cell's value.
+type decrementer interface {
+	decrement()
 }
 
-// IncrementDecrementer represents the ability to both
+// incrementDecrementer represents the ability to both
 // increase and decrease a cell's value.
-type IncrementDecrementer interface {
-	Decrementer
-	Incrementer
+type incrementDecrementer interface {
+	decrementer
+	incrementer
 }
 
-// Lefter represents the ability to move left on a tape.
-type Lefter interface {
-	Left()
+// lefter represents the ability to move left on a tape.
+type lefter interface {
+	left()
 }
 
-// Righter represents the ability to move right on a tape.
-type Righter interface {
-	Right()
+// righter represents the ability to move right on a tape.
+type righter interface {
+	right()
 }
 
-// LeftRighter represents the ability to move in both
+// leftRighter represents the ability to move in both
 // directions on a tape.
-type LeftRighter interface {
-	Lefter
-	Righter
+type leftRighter interface {
+	lefter
+	righter
 }
 
-// Outputter represents the ability to retrieve a cell's value.
-type Outputter interface {
-	Output() int64
+// outputter represents the ability to retrieve a cell's value.
+type outputter interface {
+	output() int64
 }
 
-// Inputter represents the ability to store a value in a cell.
-type Inputter interface {
-	Input(int64)
+// inputter represents the ability to store a value in a cell.
+type inputter interface {
+	input(int64)
 }
 
-// OutputInputter represents the ability to both store and
+// outputInputter represents the ability to both store and
 // retrieve values to and from a cell.
-type OutputInputter interface {
-	Outputter
-	Inputter
+type outputInputter interface {
+	outputter
+	inputter
+}
+
+// memory represents the behaviour of a tape of cells, allowing
+// input and output, moving accross the tape, and modifying the
+// values of the cells.
+type memory interface {
+	incrementDecrementer
+	leftRighter
+	outputInputter
 }
 
 // Program provides external access to compiled Brainfuck
 // program to execute.
 type Program interface {
+	memory
 	Execute(io.ReadWriter) error
 }

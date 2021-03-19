@@ -5,13 +5,18 @@
 package bfk
 
 var (
+	// cellMax defines the maximum value a cell can contain.
 	cellMax int64 = 255
+
+	// cellMin defines the miniumum value a cell can contain.
 	cellMin int64 = 0
 )
 
+// cell represents a sign value within a memory tape.
 type cell int64
 
-func (c *cell) Increment() {
+// increment increases a cell's value.
+func (c *cell) increment() {
 	// Increment the value
 	value := int64(*c) + 1
 
@@ -24,7 +29,8 @@ func (c *cell) Increment() {
 	*c = cell(value)
 }
 
-func (c *cell) Decrement() {
+// decrement decreases a cell's value.
+func (c *cell) decrement() {
 	// Decrement the value
 	value := int64(*c) - 1
 
@@ -37,10 +43,12 @@ func (c *cell) Decrement() {
 	*c = cell(value)
 }
 
-func (c *cell) Output() int64 {
+// output retrieves a cell's value.
+func (c *cell) output() int64 {
 	return int64(*c)
 }
 
-func (c *cell) Input(value int64) {
+// input stores a value in a cell.
+func (c *cell) input(value int64) {
 	*c = cell(value)
 }
