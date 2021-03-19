@@ -13,10 +13,10 @@ e.g. [`os.Stdout`](https://golang.org/pkg/os/#Stdout).
 
 ### Naming
 
-The name [`bfk`](https://github.com/yuri-norwood/bfk) is a abriviation of
+The name [`bfk`](https://github.com/yuri-norwood/bfk) is an abriviation of
 *[Brainfuck](https://en.wikipedia.org/wiki/Brainfuck)* (which hearafter is
 refered to as *BF*) in the same manner that the
-[`fmt`](https://golang.org/pkg/fmt/) package is a abriviation of *Format*.
+[`fmt`](https://golang.org/pkg/fmt/) package is an abriviation of *Format*.
 This seamed appropriate given profane the name of the language, as well as
 the sometimes hard-to-read names of Go package and module names.
 
