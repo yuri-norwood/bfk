@@ -5,8 +5,8 @@
 package bfk
 
 import (
-	"io"
 	"fmt"
+	"io"
 )
 
 // incrementer represents the ability to increase a cell's value.
