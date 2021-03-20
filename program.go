@@ -13,6 +13,10 @@ type program struct {
 	code string
 }
 
+func (p *program) String() string {
+	return p.code
+}
+
 // Execute runs a compiled program instance using the given
 // ReadWriter.
 func (p *program) Execute(readWriter io.ReadWriter) error {
