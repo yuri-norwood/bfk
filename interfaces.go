@@ -4,7 +4,10 @@
 
 package bfk
 
-import "io"
+import (
+	"fmt"
+	"io"
+)
 
 // incrementer represents the ability to increase a cell's value.
 type incrementer interface {
@@ -70,5 +73,6 @@ type memory interface {
 // program to execute.
 type Program interface {
 	memory
+	fmt.Stringer
 	Execute(io.ReadWriter) error
 }
