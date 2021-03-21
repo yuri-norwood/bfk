@@ -18,8 +18,8 @@ var (
 
 	beer = code{
 		name:   "99 Bottles of Beer on the Wall",
-		source: beer,
-		output: beer,
+		source: beerSource,
+		output: beerOutput,
 	}
 )
 
