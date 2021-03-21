@@ -19,7 +19,6 @@ var (
 	beer = code{
 		name:   "99 Bottles of Beer on the Wall",
 		source: beer,
-		input:  nil,
 		output: beer,
 	}
 )
