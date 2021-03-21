@@ -16,7 +16,9 @@ jobs:
   markdown:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v1
+      - uses: actions/checkout@v2
+        with:
+          submodules: recursive
 
       # Lint the README
       - name: Lint README
@@ -27,7 +29,9 @@ jobs:
   editorconfig:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v1
+      - uses: actions/checkout@v2
+        with:
+          submodules: recursive
 
       # Check all files against the .editorconfig
       - name: Check editorconfig
@@ -36,9 +40,11 @@ jobs:
   yaml:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v2
+        with:
+          submodules: recursive
 
       # Lint all .yml files
-      - uses: actions/checkout@v1
       - name: yaml lint
         uses: ibiqlik/action-yamllint@v3
         with:
