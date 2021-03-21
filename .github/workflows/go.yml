@@ -17,6 +17,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+        with:
+          submodules: recursive
 
       - name: Set up Go
         uses: actions/setup-go@v2
@@ -29,7 +31,9 @@ jobs:
   fmt:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@master
+      - uses: actions/checkout@v2
+        with:
+          submodules: recursive
 
       - name: Golang Formatter
         uses: sladyn98/auto-go-format@master
@@ -40,6 +44,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+        with:
+          submodules: recursive
 
       - name: Lint Go files
         uses: Jerome1337/golint-action@v1.0.2
@@ -50,6 +56,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+        with:
+          submodules: recursive
 
       - name: Set up Go
         uses: actions/setup-go@v2
@@ -63,6 +71,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+        with:
+          submodules: recursive
 
       - name: Set up Go
         uses: actions/setup-go@v2
