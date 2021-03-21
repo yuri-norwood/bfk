@@ -30,7 +30,7 @@ var (
 	bitwidth = code{
 		name:   "Cell Bit Width Detection (",
 		source: bitwidthSource,
-		output: "Hello World! 255", // output varies, this is the target
+		output: []byte("Hello World! 255"), // output varies, this is the target
 	}
 )
 
@@ -39,10 +39,10 @@ var (
 	collatzSource string
 
 	//go:embed _data/rdebath/testing/Collatz.in
-	collatzInput string
+	collatzInput []byte
 
 	//go:embed _data/rdebath/testing/Collatz.out
-	collatzOutput string
+	collatzOutput []byte
 
 	collatz = code{
 		name:   "Collatz Starting from PI x 1 bazillion",
