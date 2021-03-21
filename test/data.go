@@ -24,7 +24,7 @@ var (
 )
 
 var (
-	//go:embed _data_/rdebath/bitwidth.b
+	//go:embed _data/rdebath/bitwidth.b
 	bitwidthSource string
 
 	bitwidth = code{
