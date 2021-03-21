@@ -7,9 +7,6 @@ type code struct {
 	output []byte
 }
 
-func NewCode(name, source string, input, output []byte) code {
-}
-
 //go:embed _data/rdebath/testing/
 
 var (
