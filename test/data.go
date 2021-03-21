@@ -1,6 +1,6 @@
 package test
 
-import _ "embed"
+import _ "embed" // allow embedding test files directly into code
 
 type code struct {
 	name   string
