@@ -9,8 +9,6 @@ type code struct {
 	output []byte
 }
 
-//go:embed _data/rdebath/testing/
-
 var (
 	//go:embed _data/rdebath/testing/Beer.b
 	beerSource string
