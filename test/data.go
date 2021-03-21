@@ -35,3 +35,21 @@ var (
 		output: "Hello World! 255", // output varies, this is the target
 	}
 )
+
+var (
+	//go:embed _data/rdebath/testing/Collatz.b
+	collatzSource string
+
+	//go:embed _data/rdebath/testing/Collatz.in
+	collatzInput string
+
+	//go:embed _data/rdebath/testing/Collatz.out
+	collatzOutput string
+
+	collatz = code{
+		name:   "Collatz Starting from PI x 1 bazillion",
+		source: collatzSource,
+		input:  collatzInput,
+		output: collatzOutput,
+	}
+)
