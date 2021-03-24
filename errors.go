@@ -5,7 +5,6 @@
 package bfk
 
 import (
-	"bufio"
 	"errors"
 	"fmt"
 )
