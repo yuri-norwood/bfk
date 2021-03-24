@@ -40,4 +40,4 @@ jobs:
             ```sh
             git fetch && git checkout "${{ env.GITHUB_NEW_BRANCH }}"
             ```
-            ([Go to branch](https://github.com/${{ env.GITHUB_REPOSITORY }}/tree/${{ env.GITHUB_NEW_BRANCH }}))
+            ([Go to branch](https://github.com/${{ github.repository }}/tree/${{ env.GITHUB_NEW_BRANCH }}))
