@@ -25,7 +25,7 @@ func (err ParseError) Error() string {
 	message := "Invalid program"
 
 	// Set true error message if found
-	if  err.msg == nil && err.inner != nil {
+	if  err.msg == "" && err.inner != nil {
 		message = err.inner.Error()
 	} else {
 		message = err.msg
