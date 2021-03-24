@@ -9,7 +9,7 @@ import (
 	"fmt"
 )
 
-// ParseError represents an error occurring during parsing. 
+// ParseError represents an error occurring during parsing.
 type ParseError struct {
 	inner error
 	msg, Source string
