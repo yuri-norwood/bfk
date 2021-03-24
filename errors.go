@@ -41,15 +41,20 @@ func (err ParseError) Unwrap() error {
 }
 
 var (
-	// ErrBadReader
+	// ErrBadReader is returned when the io.ReadWriter given
+	// to Execute cannot be read from.
 	ErrBadReader = errors.New("bfk: Invalid Reader")
 
-	// ErrBadWriter
+	// ErrBadWriter is returned when the io.ReadWriter given
+	// to Execute cannot be written to.
 	ErrBadWriter = errors.New("bfk: Invalid Writer")
 
-	// ErrBadInput
+	// ErrBadInput is returned when the io.ReadWriter given
+	// to Execute reads an input that the Program cannot
+	// understad.
 	ErrBadInput = errors.New("bfk: Invalid Input")
 
-	// ErrBadOutput
+	// ErrBadOutput is returned when the io.ReadWriter given
+	// to Execute cannot write the output of the Program.
 	ErrBadOutput = errors.New("bfk: Invalid Output")
 )
