@@ -24,9 +24,3 @@ func (p *program) String() string {
 func (p *program) Execute(readWriter io.ReadWriter) error {
 	return nil
 }
-
-// Parse provides a safe way of compiling a Brainfuck program
-// and creating an external Program to access and execute.
-func Parse(text string) Program {
-	return &program{code: text}
-}
