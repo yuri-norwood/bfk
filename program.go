@@ -13,6 +13,8 @@ type program struct {
 	code string
 }
 
+// String returns a string representation of the internal
+// state of a program.
 func (p *program) String() string {
 	return p.code
 }
