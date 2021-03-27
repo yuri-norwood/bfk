@@ -28,7 +28,7 @@ var (
 	bitwidthSource string
 
 	bitwidth = code{
-		name:   "Cell Bit Width Detection (",
+		name:   "Cell Bit Width Detection",
 		source: bitwidthSource,
 		output: []byte("Hello World! 255"), // output varies, this is the target
 	}
