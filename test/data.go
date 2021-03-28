@@ -2,6 +2,8 @@ package test
 
 import _ "embed" // allow embedding test files directly into code
 
+// code represents a testing Brainfuck program, together with the
+// matching input and expected output, as needed.
 type code struct {
 	name   string
 	source string
