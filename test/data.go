@@ -44,6 +44,12 @@ var (
 	//go:embed _data/rdebath/testing/Collatz.out
 	collatzOutput []byte
 
+	// collatz is a program that reads numbers, one per line, and outputs
+	// the length of sequence, starting at the number, and following the
+	// collatz sequence down to 1. Note, there appears to be no upper limit
+	// on the size of the input numbers, the provided example is the integer
+	// representing the first X digits of PI. (X is not know, I didn't count
+	// but it could easily be the first 1000 digits!).
 	collatz = code{
 		name:   "Collatz Starting from PI x 1 bazillion",
 		source: collatzSource,
