@@ -48,10 +48,9 @@ var (
 	// the length of sequence, starting at the number, and following the
 	// collatz sequence down to 1. Note, there appears to be no upper limit
 	// on the size of the input numbers, the provided example is the integer
-	// representing the first X digits of PI. (X is not know, I didn't count
-	// but it could easily be the first 1000 digits!).
+	// representing the first 2000 digits of PI. (Runs unexpectedly fast).
 	collatz = code{
-		name:   "Collatz Starting from PI x 1 bazillion",
+		name:   "Collatz Starting from PI x 2000",
 		source: collatzSource,
 		input:  collatzInput,
 		output: collatzOutput,
