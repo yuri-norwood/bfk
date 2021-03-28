@@ -18,6 +18,7 @@ var (
 	//go:embed _data/rdebath/testing/Beer.out
 	beerOutput []byte
 
+	// beer is a standard "99 bottles of beer on the wall" program.
 	beer = code{
 		name:   "99 Bottles of Beer on the Wall",
 		source: beerSource,
