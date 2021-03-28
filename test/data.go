@@ -27,6 +27,9 @@ var (
 	//go:embed _data/rdebath/bitwidth.b
 	bitwidthSource string
 
+	// bitwidth is a program that detects the bit width of each
+	// cell at run time and outputs a different "hello world"
+	// variant depending on the exact cell size.
 	bitwidth = code{
 		name:   "Cell Bit Width Detection (",
 		source: bitwidthSource,
