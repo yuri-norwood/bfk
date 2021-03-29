@@ -13,7 +13,7 @@ type cell struct {
 // increment increases a cell's value.
 func (c *cell) increment() {
 	// Increment the value
-	value := *c.value + 1
+	value := (*c.value) + 1
 	
 	// Get limit values
 	max := *(*c.config).CellMax
@@ -31,7 +31,7 @@ func (c *cell) increment() {
 // decrement decreases a cell's value.
 func (c *cell) decrement() {
 	// Decrement the value
-	value := int64(*c.value) - 1
+	value := (*c.value) - 1
 
 	// Get limit values
 	max := *(*c.config).CellMax
