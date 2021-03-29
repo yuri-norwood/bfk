@@ -25,7 +25,7 @@ func (c *cell) increment() {
 	}
 
 	// Assign new value
-	*c.value = value
+	c.value = value
 }
 
 // decrement decreases a cell's value.
@@ -43,15 +43,15 @@ func (c *cell) decrement() {
 	}
 
 	// Assign new value
-	*c.value = value
+	c.value = value
 }
 
 // output retrieves a cell's value.
 func (c *cell) output() int64 {
-	return *c.value
+	return c.value
 }
 
 // input stores a value in a cell.
 func (c *cell) input(value int64) {
-	*c.value = value
+	c.value = value
 }
