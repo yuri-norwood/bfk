@@ -15,7 +15,7 @@ type tape struct {
 
 // Configure sets the runtime behaviour of a progam running
 // on this tape.
-func (t *tape) Configure(Config config) {
+func (t *tape) Configure(config Config) {
 	t.config = &config
 }
 
