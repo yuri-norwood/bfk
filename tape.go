@@ -4,15 +4,19 @@
 
 package bfk
 
-// tapeSize defines the maximum size of a memory tape.
-var tapeSize int64 = 30000
-
 // tape is a private implementor of the memory interface,
 // providing access to a collection of cells.
 type tape struct {
 	cell
 	pointer int64
 	memory  []cell
+	config  *Config
+}
+
+// Configure sets the runtime behaviour of a progam running
+// on this tape.
+func (t *tape) Configure(config Config) {
+	t.config = &config
 }
 
 // right moves the pointer right on a tape.
@@ -21,13 +25,13 @@ func (t *tape) right() {
 	t.pointer++
 
 	// Check maximum not exceeded
-	if t.pointer >= tapeSize {
+	if t.pointer >= t.config.TapeSize {
 		t.pointer = 0
 	}
 
 	// Expand memory
 	if t.pointer < int64(len(t.memory)) {
-		t.memory = append(t.memory, cell(0))
+		t.memory = append(t.memory, cell{config: t.config})
 	}
 
 	// Update current cell
@@ -41,12 +45,12 @@ func (t *tape) left() {
 
 	// Check minimum not exceeded
 	if t.pointer < 0 {
-		t.pointer = tapeSize - 1
+		t.pointer = t.config.TapeSize - 1
 	}
 
 	// Expand memory
 	if t.pointer < int64(len(t.memory)) {
-		t.memory = append(t.memory, cell(0))
+		t.memory = append(t.memory, cell{config: t.config})
 	}
 
 	// Update current cell
