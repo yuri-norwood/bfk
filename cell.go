@@ -31,7 +31,7 @@ func (c *cell) increment() {
 // decrement decreases a cell's value.
 func (c *cell) decrement() {
 	// Decrement the value
-	value := value - 1
+	value := c.value - 1
 
 	// Get limit values
 	max := c.config.CellMax
