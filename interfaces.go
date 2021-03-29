@@ -76,7 +76,7 @@ type Configurer interface {
 }
 
 // Executetor represents the ability to execute a program with
-// a given input and output stream. 
+// a given input and output stream.
 type Executetor interface {
 	Execute(io.ReadWriter) error
 }
