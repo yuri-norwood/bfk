@@ -36,7 +36,7 @@ jobs:
           submodules: recursive
 
       - name: Golang Formatter
-        uses: sladyn98/auto-go-format@master
+        uses: dingdayu/auto-go-format@master
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
