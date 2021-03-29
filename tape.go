@@ -25,7 +25,10 @@ func (t *tape) right() {
 
 	// Expand memory
 	if t.pointer < int64(len(t.memory)) {
-		t.memory = append(t.memory, cell(0))
+		c = cell(value: 0)
+		c.config = t.config
+
+		t.memory = append(t.memory, c)
 	}
 
 	// Update current cell
@@ -44,7 +47,10 @@ func (t *tape) left() {
 
 	// Expand memory
 	if t.pointer < int64(len(t.memory)) {
-		t.memory = append(t.memory, cell(0))
+		c = cell(value: 0)
+		c.config = t.config
+
+		t.memory = append(t.memory, c)
 	}
 
 	// Update current cell
