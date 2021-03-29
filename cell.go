@@ -14,7 +14,7 @@ type cell struct {
 func (c *cell) increment() {
 	// Increment the value
 	value := c.value + 1
-	
+
 	// Get limit values
 	max := c.config.CellMax
 	min := c.config.CellMin
