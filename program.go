@@ -11,6 +11,7 @@ import "io"
 type program struct {
 	tape
 	code string
+	config Config
 }
 
 // String returns a string representation of the internal
