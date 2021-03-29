@@ -13,6 +13,12 @@ type tape struct {
 	config  *Config
 }
 
+// Configure sets the runtime behaviour of a progam running
+// on this tape.
+func (t *tape) Configure(Config config) {
+	t.config = &config
+}
+
 // right moves the pointer right on a tape.
 func (t *tape) right() {
 	// Increment the value
