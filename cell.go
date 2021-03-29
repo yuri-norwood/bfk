@@ -6,7 +6,7 @@ package bfk
 
 // cell represents a sign value within a memory tape.
 type cell struct {
-	value int64
+	value  int64
 	config *Config
 }
 

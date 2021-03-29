@@ -6,7 +6,7 @@ package bfk
 
 // Config defines the behaviour of a bfk Program.
 type Config struct {
-	CellMax int64
-	CellMin int64
+	CellMax  int64
+	CellMin  int64
 	TapeSize int64
 }

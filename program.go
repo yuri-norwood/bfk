@@ -10,7 +10,7 @@ import "io"
 // to be returned by the Parse constructor.
 type program struct {
 	tape
-	code string
+	code   string
 	config Config
 }
 
