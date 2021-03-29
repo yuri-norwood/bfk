@@ -24,7 +24,7 @@ func Parse(text string, settings Config) (bfk Program, err error) {
 		config : settings,
 	}
 
-	*bfk.tape.config = &settings
+	(*bfk).tape.config = &settings
 
 	return bfk, err
 }
