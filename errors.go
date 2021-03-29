@@ -4,10 +4,9 @@
 
 package bfk
 
-import (
-	"errors"
-	"fmt"
-)
+import "fmt"
+
+const errorFormat = "bfk: %s\n"
 
 // ParseError represents an error occurring during parsing.
 type ParseError struct {
@@ -19,7 +18,7 @@ type ParseError struct {
 // Error returns an error message describing the ParseError.
 func (err ParseError) Error() string {
 	// Set error message format
-	format := "bfk.ParseError at line %d, col %d: %s\n"
+	format := fmt.Sprintf(errorFormat, "ParseError at line %d, col %d: %s")
 
 	// Set default error message
 	message := "Invalid program"
@@ -43,18 +42,18 @@ func (err ParseError) Unwrap() error {
 var (
 	// ErrBadReader is returned when the io.ReadWriter given
 	// to Execute cannot be read from.
-	ErrBadReader = errors.New("bfk: Invalid Reader")
+	ErrBadReader = fmt.Errorf(errorFormat, "Invalid Reader")
 
 	// ErrBadWriter is returned when the io.ReadWriter given
 	// to Execute cannot be written to.
-	ErrBadWriter = errors.New("bfk: Invalid Writer")
+	ErrBadWriter = fmt.Errorf(errorFormat, "Invalid Writer")
 
 	// ErrBadInput is returned when the io.ReadWriter given
 	// to Execute reads an input that the Program cannot
 	// understad.
-	ErrBadInput = errors.New("bfk: Invalid Input")
+	ErrBadInput = fmt.Errorf(errorFormat, "Invalid Input")
 
 	// ErrBadOutput is returned when the io.ReadWriter given
 	// to Execute cannot write the output of the Program.
-	ErrBadOutput = errors.New("bfk: Invalid Output")
+	ErrBadOutput = fmt.Errorf(errorFormat, "Invalid Output")
 )
