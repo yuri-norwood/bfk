@@ -19,12 +19,12 @@ package bfk
 // and creating an external Program to access and execute.
 func Parse(text string, settings Config) (bfk Program, err error) {
 	err = nil
-	bfk = &program{
+	bfk = program{
 		code   : text,
 		config : settings,
 	}
 
 	bfk.tape.config = &settings
 
-	return bfk, err
+	return &bfk, err
 }
