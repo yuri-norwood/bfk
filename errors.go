@@ -11,9 +11,9 @@ import (
 
 // ParseError represents an error occurring during parsing.
 type ParseError struct {
-	inner error
+	inner       error
 	msg, Source string
-	Line, Col int
+	Line, Col   int
 }
 
 // Error returns an error message describing the ParseError.
@@ -25,7 +25,7 @@ func (err ParseError) Error() string {
 	message := "Invalid program"
 
 	// Set true error message if found
-	if  err.msg != "" {
+	if err.msg != "" {
 		message = err.msg
 	} else if err.inner != nil {
 		message = err.inner.Error()
