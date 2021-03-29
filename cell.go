@@ -16,8 +16,8 @@ func (c *cell) increment() {
 	value := c.value + 1
 	
 	// Get limit values
-	max := *(*c.config).CellMax
-	min := *(*c.config).CellMin
+	max := c.config.CellMax
+	min := c.config.CellMin
 
 	// Check maximum not exceeded
 	if value > max {
@@ -34,8 +34,8 @@ func (c *cell) decrement() {
 	value := value - 1
 
 	// Get limit values
-	max := *(*c.config).CellMax
-	min := *(*c.config).CellMin
+	max := c.config.CellMax
+	min := c.config.CellMin
 
 	// Check minimum not exceeded
 	if value < min {
