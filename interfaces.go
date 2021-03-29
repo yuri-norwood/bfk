@@ -69,10 +69,23 @@ type memory interface {
 	outputInputter
 }
 
+// Configurer represents the ability to configure the program's
+// run time behaviour.
+type Configurer interface {
+	Configure(Config)
+}
+
+// Executetor represents the ability to execute a program with
+// a given input and output stream. 
+type Executetor interface {
+	Execute(io.ReadWriter) error
+}
+
 // Program provides external access to compiled Brainfuck
 // program to execute.
 type Program interface {
 	memory
 	fmt.Stringer
-	Execute(io.ReadWriter) error
+	Configurer
+	Executetor
 }
