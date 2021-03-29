@@ -39,7 +39,7 @@ func (c *cell) decrement() {
 
 	// Check minimum not exceeded
 	if value < min {
-		value = ax
+		value = max
 	}
 
 	// Assign new value
