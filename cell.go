@@ -39,7 +39,7 @@ func (c *cell) decrement() {
 	}
 
 	// Assign new value
-	*c.value = cell(value)
+	*c.value = value
 }
 
 // output retrieves a cell's value.
