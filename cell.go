@@ -4,51 +4,46 @@
 
 package bfk
 
-var (
-	// cellMax defines the maximum value a cell can contain.
-	cellMax int64 = 255
-
-	// cellMin defines the miniumum value a cell can contain.
-	cellMin int64 = 0
-)
-
 // cell represents a sign value within a memory tape.
-type cell int64
+type cell struct {
+	value int64
+	config *Config
+}
 
 // increment increases a cell's value.
 func (c *cell) increment() {
 	// Increment the value
-	value := int64(*c) + 1
+	value := int64(*c.value) + 1
 
 	// Check maximum not exceeded
-	if value > cellMax {
-		value = cellMin
+	if value > *c.config.CellMax {
+		value = *c.config.CellMin
 	}
 
 	// Assign new value
-	*c = cell(value)
+	*c.value = cell(value)
 }
 
 // decrement decreases a cell's value.
 func (c *cell) decrement() {
 	// Decrement the value
-	value := int64(*c) - 1
+	value := int64(*c.value) - 1
 
 	// Check minimum not exceeded
-	if value < cellMin {
-		value = cellMax
+	if value < *c.config.CellMin {
+		value = *c.config.CellMax
 	}
 
 	// Assign new value
-	*c = cell(value)
+	*c.value = cell(value)
 }
 
 // output retrieves a cell's value.
 func (c *cell) output() int64 {
-	return int64(*c)
+	return int64(*c.value)
 }
 
 // input stores a value in a cell.
 func (c *cell) input(value int64) {
-	*c = cell(value)
+	*c.value = cell(value)
 }
