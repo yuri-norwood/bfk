@@ -13,6 +13,8 @@ type program struct {
 	code string
 }
 
+// String returns a string representation of the internal
+// state of a program.
 func (p *program) String() string {
 	return p.code
 }
@@ -21,10 +23,4 @@ func (p *program) String() string {
 // ReadWriter.
 func (p *program) Execute(readWriter io.ReadWriter) error {
 	return nil
-}
-
-// Parse provides a safe way of compiling a Brainfuck program
-// and creating an external Program to access and execute.
-func Parse(text string) Program {
-	return &program{code: text}
 }

@@ -14,3 +14,12 @@
 // 	var stream io.ReadWriter
 // 	program.Execute(stream)
 package bfk
+
+// Parse provides a safe way of compiling a Brainfuck program
+// and creating an external Program to access and execute.
+func Parse(text string) (bfk Program, err error) {
+	err = nil
+	bfk = &program{code: text}
+
+	return bfk, err
+}
