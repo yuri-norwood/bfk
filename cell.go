@@ -16,8 +16,8 @@ func (c *cell) increment() {
 	value := *c.value + 1
 	
 	// Get limit values
-	max = *(*c.config).CellMax
-	min = *(*c.config).CellMin
+	max := *(*c.config).CellMax
+	min := *(*c.config).CellMin
 
 	// Check maximum not exceeded
 	if value > max {
@@ -25,7 +25,7 @@ func (c *cell) increment() {
 	}
 
 	// Assign new value
-	*c.value = cell(value)
+	*c.value = value
 }
 
 // decrement decreases a cell's value.
@@ -33,9 +33,13 @@ func (c *cell) decrement() {
 	// Decrement the value
 	value := int64(*c.value) - 1
 
+	// Get limit values
+	max := *(*c.config).CellMax
+	min := *(*c.config).CellMin
+
 	// Check minimum not exceeded
-	if value < *c.config.CellMin {
-		value = *c.config.CellMax
+	if value < min {
+		value = ax
 	}
 
 	// Assign new value
@@ -44,10 +48,10 @@ func (c *cell) decrement() {
 
 // output retrieves a cell's value.
 func (c *cell) output() int64 {
-	return int64(*c.value)
+	return *c.value
 }
 
 // input stores a value in a cell.
 func (c *cell) input(value int64) {
-	*c.value = cell(value)
+	*c.value = value
 }
