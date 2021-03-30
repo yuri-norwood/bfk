@@ -2,6 +2,9 @@
 
 [![Go Report Card](https://goreportcard.com/badge/github.com/yuri-norwood/bfk)](https://goreportcard.com/report/github.com/yuri-norwood/bfk)
 [![Go Reference](https://pkg.go.dev/badge/github.com/yuri-norwood/bfk.svg)](https://pkg.go.dev/github.com/yuri-norwood/bfk)
+[![Go Version](https://img.shields.io/github/go-mod/go-version/yuri-norwood/bfk)](go.mod)
+[![GitHub Release](https://img.shields.io/github/v/release/yuri-norwood/bfk?include_prereleases)](https://github.com/yuri-norwood/bfk/releases/latest)
+[![License](https://img.shields.io/github/license/yuri-norwood/bfk)](LICENSE)
 
 Brainfuck interpreter Go package
 
