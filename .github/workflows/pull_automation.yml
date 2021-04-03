@@ -16,7 +16,7 @@ on:
 jobs:
 
   # This job labels the PR based on the files modified
-  labeler:
+  label:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/labeler@main
