@@ -16,7 +16,9 @@ jobs:
   markdown:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v1
+      - uses: actions/checkout@v2
+        with:
+          submodules: recursive
 
       # Lint the README
       - name: Lint README
@@ -24,21 +26,32 @@ jobs:
         with:
           files: README.md
 
-  editorconfig:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v1
+      # Lint issue templates
+      - name: Lint ISSUE_TEMPLATES
+        uses: nosborn/github-action-markdown-cli@v1.1.1
+        with:
+          files: .github/ISSUE_TEMPLATE/*.md
 
-      # Check all files against the .editorconfig
-      - name: Check editorconfig
-        uses: editorconfig-checker/action-editorconfig-checker@v1.0.0
+      # Lint pull request templates
+      - name: Lint PULL_TEMPLATES
+        uses: nosborn/github-action-markdown-cli@v1.1.1
+        with:
+          files: .github/PULL_REQUEST_TEMPLATE.md
+
+      # Lint vim plugin documentation
+      - name: Lint vim documentation
+        uses: nosborn/github-action-markdown-cli@v1.1.1
+        with:
+          files: .config/vim/pack/*/start/*.md
 
   yaml:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v2
+        with:
+          submodules: recursive
 
       # Lint all .yml files
-      - uses: actions/checkout@v1
       - name: yaml lint
         uses: ibiqlik/action-yamllint@v3
         with:
@@ -46,6 +59,8 @@ jobs:
           format: parsable
           config_data: |
             extends: default
+            ignore:
+              test/**/*.yml
             rules:
               line-length: disable
               truthy:
@@ -53,3 +68,13 @@ jobs:
                 allowed-values:
                   - "true"
                   - "false"
+  editorconfig:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          submodules: recursive
+
+      # Check all files against the .editorconfig
+      - name: Check editorconfig
+        uses: editorconfig-checker/action-editorconfig-checker@v1.0.0
