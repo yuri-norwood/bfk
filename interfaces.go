@@ -4,7 +4,10 @@
 
 package bfk
 
-import "io"
+import (
+	"fmt"
+	"io"
+)
 
 // incrementer represents the ability to increase a cell's value.
 type incrementer interface {
@@ -66,9 +69,23 @@ type memory interface {
 	outputInputter
 }
 
+// Configurer represents the ability to configure the program's
+// run time behaviour.
+type Configurer interface {
+	Configure(Config)
+}
+
+// Executetor represents the ability to execute a program with
+// a given input and output stream.
+type Executetor interface {
+	Execute(io.ReadWriter) error
+}
+
 // Program provides external access to compiled Brainfuck
 // program to execute.
 type Program interface {
 	memory
-	Execute(io.ReadWriter) error
+	fmt.Stringer
+	Configurer
+	Executetor
 }

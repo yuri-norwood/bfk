@@ -15,6 +15,15 @@ on:
 # Define a job for each automatic task
 jobs:
 
+  # This job labels the PR based on the files modified
+  label:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/labeler@main
+        with:
+          repo-token: "${{ secrets.GITHUB_TOKEN }}"
+          sync-labels: false
+
   # This job assigns each PR to it's author
   assign:
     runs-on: ubuntu-latest

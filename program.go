@@ -10,17 +10,18 @@ import "io"
 // to be returned by the Parse constructor.
 type program struct {
 	tape
-	code string
+	code   string
+	config Config
+}
+
+// String returns a string representation of the internal
+// state of a program.
+func (p *program) String() string {
+	return p.code
 }
 
 // Execute runs a compiled program instance using the given
 // ReadWriter.
 func (p *program) Execute(readWriter io.ReadWriter) error {
 	return nil
-}
-
-// Parse provides a safe way of compiling a Brainfuck program
-// and creating an external Program to access and execute.
-func Parse(text string) Program {
-	return &program{code: text}
 }
