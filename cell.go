@@ -12,16 +12,26 @@ type cell struct {
 
 // increment increases a cell's value.
 func (c *cell) increment() {
+	// Get config values
+	max, min := c.config.CellSize, 0
+
 	// Increment the value
 	value := c.value + 1
 
-	// Get limit values
-	max := c.config.CellMax
-	min := c.config.CellMin
+	// Get min limit
+ 	if c.config.CellSigned {
+		min = 0 - max
+	}
+
+	// Check overflow
 
 	// Check maximum not exceeded
 	if value > max {
-		value = min
+		if c.config.CellWrap {
+			value = min
+		} else {
+			value = c.value
+		}
 	}
 
 	// Assign new value
@@ -30,16 +40,27 @@ func (c *cell) increment() {
 
 // decrement decreases a cell's value.
 func (c *cell) decrement() {
+
+// Get config values
+	max, min := c.config.CellSize, 0
+
 	// Decrement the value
 	value := c.value - 1
 
-	// Get limit values
-	max := c.config.CellMax
-	min := c.config.CellMin
+	// Get min limit
+ 	if c.config.CellSigned {
+		min = 0 - max
+	}
+
+	// Check overflow
 
 	// Check minimum not exceeded
 	if value < min {
-		value = max
+		if c.config.CellWrap {
+			value = max
+		} else {
+			value = c.value
+		}
 	}
 
 	// Assign new value
