@@ -9,5 +9,6 @@ type Config struct {
 	CellWrap bool
 	CellSigned bool
 	CellSize int64
+	TapeWrap bool
 	TapeSize int64
 }
