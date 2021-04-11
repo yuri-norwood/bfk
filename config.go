@@ -6,9 +6,9 @@ package bfk
 
 // Config defines the behaviour of a bfk Program.
 type Config struct {
-	CellWrap bool
+	CellWrap   bool
 	CellSigned bool
-	CellSize int64
-	TapeWrap bool
-	TapeSize int64
+	CellSize   int64
+	TapeWrap   bool
+	TapeSize   int64
 }
