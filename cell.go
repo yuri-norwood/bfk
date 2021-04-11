@@ -19,7 +19,7 @@ func (c *cell) increment() {
 	value := c.value + 1
 
 	// Get min limit
- 	if c.config.CellSigned {
+	if c.config.CellSigned {
 		min = 0 - max
 	}
 
@@ -41,14 +41,14 @@ func (c *cell) increment() {
 // decrement decreases a cell's value.
 func (c *cell) decrement() {
 
-// Get config values
+	// Get config values
 	max, min := c.config.CellSize, 0
 
 	// Decrement the value
 	value := c.value - 1
 
 	// Get min limit
- 	if c.config.CellSigned {
+	if c.config.CellSigned {
 		min = 0 - max
 	}
 
