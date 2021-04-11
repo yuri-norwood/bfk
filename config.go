@@ -9,5 +9,6 @@ type Config struct {
 	CellWrap bool
 	CellMax  int64
 	CellMin  int64
+	TapeWrap bool
 	TapeSize int64
 }
