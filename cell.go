@@ -13,7 +13,7 @@ type cell struct {
 // increment increases a cell's value.
 func (c *cell) increment() {
 	// Get config values
-	max, min := c.config.CellSize, 0
+	max, min := c.config.CellSize, int64(0)
 
 	// Increment the value
 	value := c.value + 1
