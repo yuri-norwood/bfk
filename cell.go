@@ -23,10 +23,9 @@ func (c *cell) increment() {
 		min = 0 - max
 	}
 
-	// Check overflow
-
 	// Check maximum not exceeded
 	if value > max {
+		// Check overflow
 		if c.config.CellWrap {
 			value = min
 		} else {
@@ -51,11 +50,10 @@ func (c *cell) decrement() {
 		min = 0 - max
 	}
 
-	// Check overflow
-
 	// Check minimum not exceeded
 	if value < min {
 		if c.config.CellWrap {
+			// Check overflow
 			value = max
 		} else {
 			value = c.value
