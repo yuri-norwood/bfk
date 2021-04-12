@@ -40,7 +40,7 @@ func (c *cell) increment() {
 // decrement decreases a cell's value.
 func (c *cell) decrement() {
 	// Get config values
-	max, min := c.config.CellSize, 0
+	max, min := c.config.CellSize, int64(0)
 
 	// Decrement the value
 	value := c.value - 1
