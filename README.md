@@ -42,7 +42,7 @@ import (
 const HelloWorld = "+[>>>->-[>->----<<<]>>]>.---.>+..+++.>>.<.>>---.<<<.+++.------.<-.>>+."
 
 func main() {
-    program := bfk.Parse(HelloWorld)
+    program, err := bfk.Parse(HelloWorld)
     program.Execute(os.Stdout) // Prints "hello, world!"
 }
 
