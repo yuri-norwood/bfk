@@ -1,0 +1,40 @@
+---
+
+# GitHub Actions
+actions:
+  - '.github/**/*.yml'
+
+# Improvements or additions to documentation
+documentation:
+  - '**/*.md'
+  - '.github/*.md'
+  - '.github/LICENSE'
+  - '.github/CODEOWNERS'
+  - '.github/ISSUE_TEMPLATE/config.yml'
+  - '.gitattributes'
+
+# This regards the .editorconfig file or settings
+editorconfig:
+  - '**/.editorconfig'
+
+# This regards git
+git:
+  - '.gitmodules'
+  - '**/.gitattributes'
+  - '**/.gitignore'
+
+# Actually GitHub
+github:
+  - '.github/**/*'
+
+# This regards a primary code file
+go:
+  - '**/*.go'
+
+# This regards the labeler automation
+labeler:
+  - '.github/labeler.yml'
+
+# This regards a testing code file
+test:
+  - 'test/**/*'
