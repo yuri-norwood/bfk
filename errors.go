@@ -12,20 +12,20 @@ const (
 
 	// ErrBadReader is returned when the io.ReadWriter given
 	// to Execute cannot be read from.
-	ErrBadReader BfkError = "Invalid Reader"
+	ErrBadReader Error = "Invalid Reader"
 
 	// ErrBadWriter is returned when the io.ReadWriter given
 	// to Execute cannot be written to.
-	ErrBadWriter BfkError = "Invalid Writer"
+	ErrBadWriter Error = "Invalid Writer"
 
 	// ErrBadInput is returned when the io.ReadWriter given
 	// to Execute reads an input that the Program cannot
 	// understad.
-	ErrBadInput BfkError = "Invalid Input"
+	ErrBadInput Error = "Invalid Input"
 
 	// ErrBadOutput is returned when the io.ReadWriter given
 	// to Execute cannot write the output of the Program.
-	ErrBadOutput BfkError = "Invalid Output"
+	ErrBadOutput Error = "Invalid Output"
 )
 
 // ParseError represents an error occurring during parsing.
@@ -35,8 +35,8 @@ type ParseError struct {
 	Line, Col   int
 }
 
-// BfkError represents an error within the bfk package.
-type BfkError string
+// Error represents an error within the bfk package.
+type Error string
 
 // Error returns an error message describing the ParseError.
 func (err ParseError) Error() string {
@@ -57,8 +57,8 @@ func (err ParseError) Error() string {
 	return fmt.Sprintf(format, err.Line, err.Col, message)
 }
 
-// Error returns an error message describing the BfkError.
-func (err BfkError) Error() string {
+// Error returns an error message describing the Error.
+func (err Error) Error() string {
 	message := string(err)
 
 	return fmt.Sprintf(errorFormat, message)
