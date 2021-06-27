@@ -12,6 +12,17 @@ on:
 # Define a job for each automatic task
 jobs:
 
+  # This job assigns the issue
+  assign:
+    runs-on: ubuntu-latest
+    steps:
+
+      # Assigns DEFAULT_ISSUE_ASSIGNEE
+      - uses: pozil/auto-assign-issue@v1
+        with:
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+          assignees: yuri-norwood
+
   # This job creates a branch for each issue and comments checkout command
   branch:
     runs-on: ubuntu-latest
