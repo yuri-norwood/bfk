@@ -59,7 +59,9 @@ func (err ParseError) Error() string {
 
 // Error returns an error message describing the BfkError.
 func (err BfkError) Error() string {
-	return fmt.Sprintf(errorFormat, err)
+	message := (string)err
+
+	return fmt.Sprintf(errorFormat, message)
 }
 
 // Unwrap returns the inner error that caused the ParseError.
