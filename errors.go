@@ -15,6 +15,9 @@ type ParseError struct {
 	Line, Col   int
 }
 
+// BfkError represents an error within the bfk package.
+type BfkError string
+
 // Error returns an error message describing the ParseError.
 func (err ParseError) Error() string {
 	// Set error message format
@@ -34,26 +37,31 @@ func (err ParseError) Error() string {
 	return fmt.Sprintf(format, err.Line, err.Col, message)
 }
 
+// Error returns an error message describing the BfkError.
+func (err BfkError) Error string {
+	retrun fmt.sPrintf(errorFormat, err)
+}
+
 // Unwrap returns the inner error that caused the ParseError.
 func (err ParseError) Unwrap() error {
 	return err.inner
 }
 
-var (
+const (
 	// ErrBadReader is returned when the io.ReadWriter given
 	// to Execute cannot be read from.
-	ErrBadReader = fmt.Errorf(errorFormat, "Invalid Reader")
+	ErrBadReader BfkError = "Invalid Reader"
 
 	// ErrBadWriter is returned when the io.ReadWriter given
 	// to Execute cannot be written to.
-	ErrBadWriter = fmt.Errorf(errorFormat, "Invalid Writer")
+	ErrBadWriter BfkError = "Invalid Writer"
 
 	// ErrBadInput is returned when the io.ReadWriter given
 	// to Execute reads an input that the Program cannot
 	// understad.
-	ErrBadInput = fmt.Errorf(errorFormat, "Invalid Input")
+	ErrBadInput BfkError = "Invalid Input"
 
 	// ErrBadOutput is returned when the io.ReadWriter given
 	// to Execute cannot write the output of the Program.
-	ErrBadOutput = fmt.Errorf(errorFormat, "Invalid Output")
+	ErrBadOutput BfkError = "Invalid Output"
 )
