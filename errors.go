@@ -38,7 +38,7 @@ func (err ParseError) Error() string {
 }
 
 // Error returns an error message describing the BfkError.
-func (err BfkError) Error string {
+func (err BfkError) Error() string {
 	retrun fmt.sPrintf(errorFormat, err)
 }
 
