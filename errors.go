@@ -59,7 +59,7 @@ func (err ParseError) Error() string {
 
 // Error returns an error message describing the BfkError.
 func (err BfkError) Error() string {
-	message := (string)err
+	message := string(err)
 
 	return fmt.Sprintf(errorFormat, message)
 }
