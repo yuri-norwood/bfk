@@ -23,9 +23,10 @@ refered to as *BF*) in the same manner that the
 This seamed appropriate given profane the name of the language, as well as
 the sometimes hard-to-read names of Go package and module names.
 
-`bfk` can be prounounced either ***bee-eff-kay*** or ***bifk***, depending on
-which is more comfortable to say, however, `bfk` is not an acronymn and should
-never be capitalised or punctuated, neither ~***BFK***~, ~***B.F.K.***~, nor
+`bfk` can be prounounced either ***bee-eff-kay*** or ***biff-kuh***, the latter
+is preferred, but the former may be used as it is more comfortable to say,
+however, note that `bfk` is not an acronymn and should never be capitalised or
+punctuated, neither ~***BFK***~, ~***B.F.K.***~, nor
 ~***b.f.k.***~ may be used.
 
 ## Example
