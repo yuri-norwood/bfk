@@ -20,7 +20,7 @@ const (
 
 	// ErrBadInput is returned when the io.ReadWriter given
 	// to Execute reads an input that the Program cannot
-	// understad.
+	// understand.
 	ErrBadInput Error = "Invalid Input"
 
 	// ErrBadOutput is returned when the io.ReadWriter given
