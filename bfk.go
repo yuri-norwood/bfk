@@ -17,6 +17,7 @@ package bfk
 
 // Parse provides a safe way of compiling a Brainfuck program
 // and creating an external Program to access and execute.
+// BUG(yuri-norwood): Not yet implemented.
 func Parse(text string) (bfk Program, err error) {
 	err = nil
 	bfk = &program{code: text}
