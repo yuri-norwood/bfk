@@ -3,8 +3,6 @@
 name: Go
 
 on:
-  workflow_dispatch:
-  push:
   pull_request:
 
 jobs:
