@@ -24,6 +24,7 @@ jobs:
         uses: actions/setup-go@v2
         with:
           stable: false
+          go-version: '^1'
 
       - name: Vet
         run: go vet
@@ -63,6 +64,7 @@ jobs:
         uses: actions/setup-go@v2
         with:
           stable: false
+          go-version: '^1'
 
       - name: Build
         run: go build -v ./...
@@ -78,6 +80,7 @@ jobs:
         uses: actions/setup-go@v2
         with:
           stable: false
+          go-version: '^1'
 
       - name: Test
         run: go test -v ./...
