@@ -3,7 +3,6 @@
 name: Lint
 
 on:
-  workflow_dispatch:
   push:
   pull_request:
 
@@ -14,6 +13,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
         with:
+          ref: ${{ github.ref }}
           submodules: recursive
 
       # Lint the README
@@ -36,6 +36,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
         with:
+          ref: ${{ github.ref }}
           submodules: recursive
 
       # Lint all .yml files
@@ -59,6 +60,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
         with:
+          ref: ${{ github.ref }}
           submodules: recursive
 
       # Check all files against the .editorconfig
