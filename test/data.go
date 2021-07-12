@@ -56,7 +56,7 @@ var (
 	// on the size of the input numbers, the provided example is the integer
 	// representing the first 2000 digits of PI. (Runs unexpectedly fast).
 	collatz = code{
-		name:   "Collatz Starting from PI x 2000",
+		name:   "Collatz Starting from PI x 10 ^ 2000",
 		source: collatzSource,
 		input:  collatzInput,
 		output: collatzOutput,
