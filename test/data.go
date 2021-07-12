@@ -12,10 +12,10 @@ type code struct {
 }
 
 var (
-	//go:embed _data/rdebath/testing/Beer.b
+	//go:embed _data/rdebath/Beer.b
 	beerSource string
 
-	//go:embed _data/rdebath/testing/Beer.out
+	//go:embed _data/rdebath/Beer.out
 	beerOutput []byte
 
 	// beer is a standard "99 bottles of beer on the wall" program.
@@ -41,13 +41,13 @@ var (
 )
 
 var (
-	//go:embed _data/rdebath/testing/Collatz.b
+	//go:embed _data/rdebath/Collatz.b
 	collatzSource string
 
-	//go:embed _data/rdebath/testing/Collatz.in
+	//go:embed _data/rdebath/Collatz.in
 	collatzInput []byte
 
-	//go:embed _data/rdebath/testing/Collatz.out
+	//go:embed _data/rdebath/Collatz.out
 	collatzOutput []byte
 
 	// collatz is a program that reads numbers, one per line, and outputs
@@ -56,7 +56,7 @@ var (
 	// on the size of the input numbers, the provided example is the integer
 	// representing the first 2000 digits of PI. (Runs unexpectedly fast).
 	collatz = code{
-		name:   "Collatz Starting from PI x 2000",
+		name:   "Collatz Starting from PI x 10 ^ 2000",
 		source: collatzSource,
 		input:  collatzInput,
 		output: collatzOutput,
