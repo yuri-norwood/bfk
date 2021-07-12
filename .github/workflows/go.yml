@@ -12,6 +12,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
         with:
+          ref: ${{ github.ref }}
           submodules: recursive
 
       - uses: actions/setup-go@v2
@@ -26,6 +27,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
         with:
+          ref: ${{ github.ref }}
           submodules: recursive
 
       - uses: dingdayu/auto-go-format@v0.0.3
@@ -48,6 +50,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
         with:
+          ref: ${{ github.ref }}
           submodules: recursive
 
       - uses: actions/setup-go@v2
@@ -62,6 +65,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
         with:
+          ref: ${{ github.ref }}
           submodules: recursive
 
       - uses: actions/setup-go@v2
