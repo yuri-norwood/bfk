@@ -17,7 +17,7 @@ jobs:
           submodules: recursive
 
       - name: Run go-mod-vendor-pr
-        uses: DennisDenuto/go-mod-vendor-pr@master
+        uses: DennisDenuto/go-mod-vendor-pr@v1.0
         with:
           base: main
           github_token: ${{ secrets.GITHUB_TOKEN }}
