@@ -19,6 +19,7 @@ jobs:
       - name: Run go-mod-vendor-pr
         uses: DennisDenuto/go-mod-vendor-pr@v1.0
         with:
+          debug: true
           base: main
           github_token: ${{ secrets.GITHUB_TOKEN }}
           git_user_name: Yuri Norwood
