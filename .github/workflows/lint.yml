@@ -55,6 +55,7 @@ jobs:
                 allowed-values:
                   - "true"
                   - "false"
+
   editorconfig:
     runs-on: ubuntu-latest
     steps:
