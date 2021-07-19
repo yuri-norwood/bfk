@@ -8,9 +8,8 @@ import "io"
 // to be returned by the Parse constructor.
 type program struct {
 	tape
-	code       string
-	operations []operation
-	config     Config
+	code   string
+	config Config
 }
 
 // operation is a private value representing a BF operation.
@@ -36,5 +35,29 @@ func (p *program) String() string {
 // Execute runs a compiled program instance using the given
 // ReadWriter.
 func (p *program) Execute(readWriter io.ReadWriter) error {
+	operations := make([]operation, 0, len(p.code))
+
+	for _, char := range p.code {
+		switch (char)
+		{
+		case "+":
+			operations = append(operations, increment)
+		case "-":
+			operations = append(operations, decrement)
+		case ",":
+			operations = append(operations, input)
+		case ".":
+			operations = append(operations, output)
+		case "<":
+			operations = append(operations, left)
+		case ">":
+			operations = append(operations, right)
+		case "[":
+			operations = append(operations, startLoop)
+		case "]":
+			operations = append(operations, closeLoop)
+		}
+	}
+
 	return nil
 }
