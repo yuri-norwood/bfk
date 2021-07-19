@@ -37,7 +37,7 @@ func (p *program) Execute(readWriter io.ReadWriter) error {
 	for _, char := range p.code {
 		col++
 
-		switch (char); {
+		switch char {
 		case increment:
 			p.increment()
 		case decrement:
