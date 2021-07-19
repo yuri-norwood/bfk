@@ -8,8 +8,9 @@ import "io"
 // to be returned by the Parse constructor.
 type program struct {
 	tape
-	code   string
-	config Config
+	code       string
+	operations []operation
+	config     Config
 }
 
 // operation is a private value representing a BF operation.
