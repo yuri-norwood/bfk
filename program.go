@@ -12,6 +12,20 @@ type program struct {
 	config Config
 }
 
+// operation is a private value representing a BF operation.
+type operation int
+
+const (
+	increment operation = iota
+	decrement operation
+	input     operation
+	output    operation
+	left      operation
+	right     operation
+	startLoop operation
+	closeLoop operation
+)
+
 // String returns a string representation of the internal
 // state of a program.
 func (p *program) String() string {
