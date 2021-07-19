@@ -39,7 +39,7 @@ type Error string
 // Error returns an error message describing the ParseError.
 func (err ParseError) Error() string {
 	// Set error message format
-	format := fmt.Sprintf(errorFormat, "ParseError in %S at line %d, col %d: %s")
+	format := fmt.Sprintf(errorFormat, "ParseError in %s at line %d, col %d: %s")
 
 	// Set default error message
 	message := "Invalid program"
