@@ -55,7 +55,7 @@ func (err ParseError) Error() string {
 
 	// Get error source if given
 	if err.Source != "" {
-		line = err.Source
+		source = err.Source
 	}
 
 	// Get error line number if given
