@@ -37,8 +37,7 @@ func (p *program) Execute(readWriter io.ReadWriter) error {
 	for _, char := range p.code {
 		col++
 
-		switch (char)
-		{
+		switch (char); {
 		case increment:
 			p.increment()
 		case decrement:
@@ -48,11 +47,11 @@ func (p *program) Execute(readWriter io.ReadWriter) error {
 			fallthrough
 		case output:
 			// p.output()
-			return ParseError {
-				msg    : "IO not yet supported.",
-				Source : "program.go",
-				Line   : line,
-				Col    : col,
+			return ParseError{
+				msg:    "IO not yet supported.",
+				Source: "program.go",
+				Line:   line,
+				Col:    col,
 			}
 		case left:
 			p.left()
@@ -61,11 +60,11 @@ func (p *program) Execute(readWriter io.ReadWriter) error {
 		case startLoop:
 			fallthrough
 		case closeLoop:
-			return ParseError {
-				msg    : "Looping not yet supported.",
-				Source : "program.go",
-				Line   : line,
-				Col    : col,
+			return ParseError{
+				msg:    "Looping not yet supported.",
+				Source: "program.go",
+				Line:   line,
+				Col:    col,
 			}
 		case "\n":
 			line++
