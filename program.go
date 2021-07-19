@@ -45,8 +45,16 @@ func (p *program) Execute(readWriter io.ReadWriter) error {
 			p.decrement()
 		case input:
 			// p.input()
+			fallthrough
 		case output:
 			// p.output()
+			return ParseError
+			{
+				msg    : "IO not yet supported.",
+				Source : "program.go",
+				Line   : line
+				Col    : col
+			}
 		case left:
 			p.left()
 		case right:
