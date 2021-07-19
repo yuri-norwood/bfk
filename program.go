@@ -12,18 +12,15 @@ type program struct {
 	config Config
 }
 
-// operation is a private value representing a BF operation.
-type operation string
-
 const (
-	increment operation = "+"
-	decrement operation = "-"
-	input     operation = ","
-	output    operation = "."
-	left      operation = "<"
-	right     operation = ">"
-	startLoop operation = "["
-	closeLoop operation = "]"
+	increment = "+"
+	decrement = "-"
+	input     = ","
+	output    = "."
+	left      = "<"
+	right     = ">"
+	startLoop = "["
+	closeLoop = "]"
 )
 
 // String returns a string representation of the internal
