@@ -4,26 +4,26 @@ package bfk
 
 import "fmt"
 
-const (
-	// errorFormat is the default format for all bfk errors.
-	errorFormat = "bfk: %s\n"
+// errorFormat is the default format for all bfk errors.
+const errorFormat = "bfk: %s\n"
 
+var (
 	// ErrBadReader is returned when the io.ReadWriter given
 	// to Execute cannot be read from.
-	ErrBadReader Error = "Invalid Reader"
+	ErrBadReader = fmt.Errorf(errorFormat, "Invalid Reader")
 
 	// ErrBadWriter is returned when the io.ReadWriter given
 	// to Execute cannot be written to.
-	ErrBadWriter Error = "Invalid Writer"
+	ErrBadWriter = fmt.Errorf(errorFormat, "Invalid Writer")
 
 	// ErrBadInput is returned when the io.ReadWriter given
 	// to Execute reads an input that the Program cannot
 	// understand.
-	ErrBadInput Error = "Invalid Input"
+	ErrBadInput = fmt.Errorf(errorFormat, "Invalid Input")
 
 	// ErrBadOutput is returned when the io.ReadWriter given
 	// to Execute cannot write the output of the Program.
-	ErrBadOutput Error = "Invalid Output"
+	ErrBadOutput = fmt.Errorf(errorFormat, "Invalid Output")
 )
 
 // ParseError represents an error occurring during parsing.
@@ -32,9 +32,6 @@ type ParseError struct {
 	msg, Source string
 	Line, Col   int
 }
-
-// Error represents an error within the bfk package.
-type Error string
 
 // Error returns an error message describing the ParseError.
 func (err ParseError) Error() string {
@@ -77,13 +74,6 @@ func (err ParseError) Error() string {
 
 	// Return final message
 	return fmt.Sprintf(format, source, line, col, message)
-}
-
-// Error returns an error message describing the Error.
-func (err Error) Error() string {
-	message := string(err)
-
-	return fmt.Sprintf(errorFormat, message)
 }
 
 // Unwrap returns the inner error that caused the ParseError.
