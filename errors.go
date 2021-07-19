@@ -26,18 +26,18 @@ const (
 	ErrBadOutput Error = "Invalid Output"
 )
 
-// ParseError represents an error occurring during parsing.
-type ParseError struct {
+// parseError represents an error occurring during parsing.
+type parseError struct {
 	inner       error
-	msg, Source string
-	Line, Col   int
+	msg, source string
+	line, col   int
 }
 
 // Error represents an error within the bfk package.
 type Error string
 
-// Error returns an error message describing the ParseError.
-func (err ParseError) Error() string {
+// Error returns an error message describing the parseError.
+func (err parseError) Error() string {
 	// Set error message format
 	format := fmt.Sprintf(errorFormat, "ParseError in %s at line %d, col %d: %s")
 
@@ -54,18 +54,18 @@ func (err ParseError) Error() string {
 	message := "Invalid program"
 
 	// Get error source if given
-	if err.Source != "" {
-		source = err.Source
+	if err.source != "" {
+		source = err.source
 	}
 
 	// Get error line number if given
-	if err.Line > 0 {
-		line = err.Line
+	if err.line > 0 {
+		line = err.line
 	}
 
 	// Get error coloumn number if given
-	if err.Col > 0 {
-		col = err.Col
+	if err.col > 0 {
+		col = err.col
 	}
 
 	// Get error message if found
@@ -86,7 +86,7 @@ func (err Error) Error() string {
 	return fmt.Sprintf(errorFormat, message)
 }
 
-// Unwrap returns the inner error that caused the ParseError.
-func (err ParseError) Unwrap() error {
+// Unwrap returns the inner error that caused the parseError.
+func (err parseError) Unwrap() error {
 	return err.inner
 }
