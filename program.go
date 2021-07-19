@@ -48,9 +48,9 @@ func (p *program) Execute(readWriter io.ReadWriter) error {
 		case output:
 			// p.output()
 		case left:
-			// p.left()
+			p.left()
 		case right:
-			// p.right()
+			p.right()
 		case startLoop:
 			fallthrough
 		case closeLoop:
