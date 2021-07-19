@@ -13,14 +13,14 @@ type program struct {
 }
 
 const (
-	increment = "+"
-	decrement = "-"
-	input     = ","
-	output    = "."
-	left      = "<"
-	right     = ">"
-	startLoop = "["
-	closeLoop = "]"
+	increment = '+'
+	decrement = '-'
+	input     = ','
+	output    = '.'
+	left      = '<'
+	right     = '>'
+	startLoop = '['
+	closeLoop = ']'
 )
 
 // String returns a string representation of the internal
