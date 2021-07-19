@@ -32,17 +32,38 @@ func (p *program) String() string {
 // Execute runs a compiled program instance using the given
 // ReadWriter.
 func (p *program) Execute(readWriter io.ReadWriter) error {
+	line, col := 1, 0
+
 	for _, char := range p.code {
+		col++
+
 		switch (char)
 		{
 		case increment:
+			// p.increment()
 		case decrement:
+			// p.decrement()
 		case input:
+			// p.input()
 		case output:
+			// p.output()
 		case left:
+			// p.left()
 		case right:
+			// p.right()
 		case startLoop:
+			fallthrough
 		case closeLoop:
+			return ParseError
+			{
+				msg    : "Looping not yet supported.",
+				Source : "program.go",
+				Line   : line
+				Col    : col
+			}
+		case "\n":
+			line++
+			col = 1
 		}
 	}
 
