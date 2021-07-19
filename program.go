@@ -13,17 +13,17 @@ type program struct {
 }
 
 // operation is a private value representing a BF operation.
-type operation int
+type operation string
 
 const (
-	increment operation = iota
-	decrement operation
-	input     operation
-	output    operation
-	left      operation
-	right     operation
-	startLoop operation
-	closeLoop operation
+	increment operation = "+"
+	decrement operation = "-"
+	input     operation = ","
+	output    operation = "."
+	left      operation = "<"
+	right     operation = ">"
+	startLoop operation = "["
+	closeLoop operation = "]"
 )
 
 // String returns a string representation of the internal
@@ -35,27 +35,17 @@ func (p *program) String() string {
 // Execute runs a compiled program instance using the given
 // ReadWriter.
 func (p *program) Execute(readWriter io.ReadWriter) error {
-	operations := make([]operation, 0, len(p.code))
-
 	for _, char := range p.code {
 		switch (char)
 		{
-		case "+":
-			operations = append(operations, increment)
-		case "-":
-			operations = append(operations, decrement)
-		case ",":
-			operations = append(operations, input)
-		case ".":
-			operations = append(operations, output)
-		case "<":
-			operations = append(operations, left)
-		case ">":
-			operations = append(operations, right)
-		case "[":
-			operations = append(operations, startLoop)
-		case "]":
-			operations = append(operations, closeLoop)
+		case increment:
+		case decrement:
+		case input:
+		case output:
+		case left:
+		case right:
+		case startLoop:
+		case closeLoop:
 		}
 	}
 
