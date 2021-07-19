@@ -41,10 +41,34 @@ func (err ParseError) Error() string {
 	// Set error message format
 	format := fmt.Sprintf(errorFormat, "ParseError in %s at line %d, col %d: %s")
 
+	// Set default source file
+	source := "package bfk"
+
+	// Set default line number
+	line := -1
+
+	// Set default column number
+	col := -1
+
 	// Set default error message
 	message := "Invalid program"
 
-	// Set true error message if found
+	// Get error source if given
+	if err.Source != "" {
+		line = err.Source
+	}
+
+	// Get error line number if given
+	if err.Line > 0 {
+		line = err.Line
+	}
+
+	// Get error coloumn number if given
+	if err.Col > 0 {
+		col = err.Col
+	}
+
+	// Get error message if found
 	if err.msg != "" {
 		message = err.msg
 	} else if err.inner != nil {
@@ -52,7 +76,7 @@ func (err ParseError) Error() string {
 	}
 
 	// Return final message
-	return fmt.Sprintf(format, err.Source, err.Line, err.Col, message)
+	return fmt.Sprintf(format, source, line, col, message)
 }
 
 // Error returns an error message describing the Error.
