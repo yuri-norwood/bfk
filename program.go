@@ -40,9 +40,9 @@ func (p *program) Execute(readWriter io.ReadWriter) error {
 		switch (char)
 		{
 		case increment:
-			// p.increment()
+			p.increment()
 		case decrement:
-			// p.decrement()
+			p.decrement()
 		case input:
 			// p.input()
 		case output:
