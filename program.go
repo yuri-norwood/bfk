@@ -66,7 +66,7 @@ func (p *program) Execute(readWriter io.ReadWriter) error {
 				Line:   line,
 				Col:    col,
 			}
-		case "\n":
+		case '\n':
 			line++
 			col = 1
 		}
