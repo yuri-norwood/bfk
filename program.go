@@ -52,7 +52,7 @@ func (p *program) Execute(readWriter io.ReadWriter) error {
 				msg    : "IO not yet supported.",
 				Source : "program.go",
 				Line   : line,
-				Col    : col
+				Col    : col,
 			}
 		case left:
 			p.left()
@@ -66,7 +66,7 @@ func (p *program) Execute(readWriter io.ReadWriter) error {
 				msg    : "Looping not yet supported.",
 				Source : "program.go",
 				Line   : line,
-				Col    : col
+				Col    : col,
 			}
 		case "\n":
 			line++
