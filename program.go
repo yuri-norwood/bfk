@@ -49,9 +49,9 @@ func (p *program) Execute(readWriter io.ReadWriter) error {
 			// p.output()
 			return parseError{
 				msg:    "IO not yet supported.",
-				Source: "program.go",
-				Line:   line,
-				Col:    col,
+				source: "program.go",
+				line:   line,
+				col:    col,
 			}
 		case left:
 			p.left()
@@ -62,9 +62,9 @@ func (p *program) Execute(readWriter io.ReadWriter) error {
 		case closeLoop:
 			return parseError{
 				msg:    "Looping not yet supported.",
-				Source: "program.go",
-				Line:   line,
-				Col:    col,
+				source: "program.go",
+				line:   line,
+				col:    col,
 			}
 		case '\n':
 			line++
