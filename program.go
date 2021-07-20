@@ -47,7 +47,7 @@ func (p *program) Execute(readWriter io.ReadWriter) error {
 			fallthrough
 		case output:
 			// p.output()
-			return ParseError{
+			return parseError{
 				msg:    "IO not yet supported.",
 				Source: "program.go",
 				Line:   line,
@@ -60,7 +60,7 @@ func (p *program) Execute(readWriter io.ReadWriter) error {
 		case startLoop:
 			fallthrough
 		case closeLoop:
-			return ParseError{
+			return parseError{
 				msg:    "Looping not yet supported.",
 				Source: "program.go",
 				Line:   line,
