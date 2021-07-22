@@ -1,0 +1,14 @@
+# The `.github/` directory contains vendor code
+.github/** linguist-vendored
+
+# The `.github/` directory also contains documentation
+.github/**/*.md linguist-documentation
+
+# The README.md is the primary documentation file
+README.md linguist-documentation
+
+# The LICENSE is a documentation file
+LICENSE linguist-documentation
+
+# The `test/_data/` directory contains vendor code
+test/_data/** linguist-vendored
