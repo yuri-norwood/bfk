@@ -79,3 +79,17 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: creekorful/goreportcard-action@v1.0
+
+  gosec:
+    runs-on: ubuntu-latest
+    env:
+      GO111MODULE: "on"
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          ref: ${{ github.ref }}
+          submodules: recursive
+
+      - uses: securego/gosec@v2.8.1
+        with:
+          args: ./...
