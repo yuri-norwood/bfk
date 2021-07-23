@@ -83,14 +83,13 @@ jobs:
   gosec:
     runs-on: ubuntu-latest
     env:
-      GO111MODULE: on
+      GO111MODULE: "on"
     steps:
       - uses: actions/checkout@v2
         with:
           ref: ${{ github.ref }}
           submodules: recursive
 
-      - uses: securego/gosec@master
+      - uses: securego/gosec@v2.8.1
         with:
           args: ./...
-
