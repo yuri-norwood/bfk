@@ -57,8 +57,8 @@ jobs:
           title: "${{ github.event.issue.title }}"
           body: |
             # Resolves #${{ github.event.issue.number }}
-            [![GitHub branch checks state](https://img.shields.io/github/workflow/status/yuri-norwood/dotfiles/Lint/${{ env.GITHUB_NEW_BRANCH }}?label=Lint)](https://github.com/yuri-norwood/dotfiles/tree/${{ env.GITHUB_NEW_BRANCH }})
-            [![GitHub issue/pull request detail](https://img.shields.io/github/issues/detail/state/yuri-norwood/dotfiles/${{ github.event.issue.number }}?label=${{ github.event.issue.number }})](https://github.com/yuri-norwood/dotfiles/issues/${{ github.event.issue.number }})
+            [![GitHub branch checks state](https://img.shields.io/github/workflow/status/${{ github.repository }}/Lint/${{ env.GITHUB_NEW_BRANCH }}?label=Lint)](https://github.com/${{ github.repository }}/tree/${{ env.GITHUB_NEW_BRANCH }})
+            [![GitHub issue/pull request detail](https://img.shields.io/github/issues/detail/state/${{ github.repository }}/${{ github.event.issue.number }}?label=%23${{ github.event.issue.number }})](https://github.com/${{ github.repository }}/issues/${{ github.event.issue.number }})
           GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
 
       # Add checkout comment to issue
@@ -67,7 +67,9 @@ jobs:
         with:
           comment: |
             [Checkout:](https://github.com/${{ github.repository }}/tree/${{ env.GITHUB_NEW_BRANCH }})
+
             ```sh
             git fetch && git checkout "${{ env.GITHUB_NEW_BRANCH }}"
             ```
+
             ([Go to pull request](${{ steps.create-pull-request.outputs.html_url }}))
