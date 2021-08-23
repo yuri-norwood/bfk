@@ -21,34 +21,53 @@ jobs:
       - uses: pozil/auto-assign-issue@v1
         with:
           repo-token: ${{ secrets.GITHUB_TOKEN }}
-          assignees: yuri-norwood
+          assignees: ${{ secrets.DEFAULT_ISSUE_ASSIGNEE }}
 
   # This job creates a branch for each issue and comments checkout command
   branch:
     runs-on: ubuntu-latest
     steps:
+      # Check out the repo locally
+      - uses: actions/checkout@v2
+        with:
+          ref: main
 
       # Set environment variables to allow configuration
       - name: Set env
         run: |
           echo "GITHUB_NEW_BRANCH=$(echo '${{ github.event.issue.number }} ${{ github.event.issue.title }}' | tr -Cs '[:alnum:]\n' '-' | tr '[:upper:]' '[:lower:]')" >> $GITHUB_ENV
+          git config --local user.email "76186754+yuri-norwood@users.noreply.github.com"
+          git config --local user.name  "Yuri Norwood"
 
       # Create new branch and push to remote
-      - uses: actions/checkout@v2
-        with:
-          ref: main
       - name: Auto branch
         run: |
           git push https://${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git
           git checkout -b "${{ env.GITHUB_NEW_BRANCH }}"
+          git commit -m "Create branch for #${{ github.event.issue.number }}" --allow-empty
           git push -u origin "${{ env.GITHUB_NEW_BRANCH }}"
+
+      # Create a new pull request from the new branch
+      - name: Create pull request
+        id: create-pull-request
+        uses: thomaseizinger/create-pull-request@1.1.0
+        with:
+          base: main
+          head: "${{ env.GITHUB_NEW_BRANCH }}"
+          title: "${{ github.event.issue.title }}"
+          body: |
+            # Resolves #${{ github.event.issue.number }}
+            [![GitHub branch checks state](https://img.shields.io/github/workflow/status/yuri-norwood/dotfiles/Lint/${{ env.GITHUB_NEW_BRANCH }}?label=Lint)](https://github.com/yuri-norwood/dotfiles/tree/${{ env.GITHUB_NEW_BRANCH }})
+            [![GitHub issue/pull request detail](https://img.shields.io/github/issues/detail/state/yuri-norwood/dotfiles/${{ github.event.issue.number }}?label=${{ github.event.issue.number }})](https://github.com/yuri-norwood/dotfiles/issues/${{ github.event.issue.number }})
+          GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
 
       # Add checkout comment to issue
       - name: Add issue comment
         uses: KeisukeYamashita/create-comment@v1
         with:
           comment: |
+            [Checkout:](https://github.com/${{ github.repository }}/tree/${{ env.GITHUB_NEW_BRANCH }})
             ```sh
             git fetch && git checkout "${{ env.GITHUB_NEW_BRANCH }}"
             ```
-            ([Go to branch](https://github.com/${{ github.repository }}/tree/${{ env.GITHUB_NEW_BRANCH }}))
+            ([Go to pull request](${{ steps.create-pull-request.outputs.html_url }}))
